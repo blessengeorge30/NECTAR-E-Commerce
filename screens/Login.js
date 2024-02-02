@@ -37,20 +37,22 @@ const Profile = () => {
                         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
                             <Image source={require('../assets/back.png')} style={{ height: 20, width: 20, marginVertical: 25 }} />
                         </TouchableOpacity>
+                        <View style={{marginTop:10}}>
                         <Image source={require('../assets/originallogo.png')} style={{ height: 60, width: 50, alignSelf: 'center' }} />
-                        {visiblity == true ? <View style={{ marginTop: 45 }}>
-                            <Text style={{ color: 'black', fontSize: 27, marginBottom: 12, marginHorizontal: 30, fontWeight: "500" }}>Login</Text>
-                            <Text style={{ color: 'grey', fontSize: 15, marginHorizontal: 25, marginBottom: 2 }}> Enter your emails and password</Text>
-
+                        {visiblity == true ? <View style={{ marginTop: 80 }}>
+                            <Text style={{ color: 'black', fontSize: 27, marginBottom: 12, alignSelf: 'center', fontWeight: "500" }}>Login</Text>
+                            <Text style={{ color: 'grey', fontSize: 15, alignSelf: 'center', marginBottom: 2 }}> Enter your emails and password</Text>
+                            
                         </View> : null}
+                        </View>
                     </ImageBackground>
                 </View>
             </View>
 
             <View >
-                <View style={{ marginTop: -320 }}>
+                <View style={{ marginTop: -380 }}>
                     <View style={{ marginTop: -140 }}>
-                    <Text style={{ color: 'black', fontSize: 15, marginLeft: 45 }}>Email</Text>
+                    <Text style={{ color: 'black', fontSize: 15, marginLeft: 55 }}>Email</Text>
                     <TouchableOpacity onPress={() => { setvisiablity(!visiblity) }}>
                         <TextInput style={[styles.inputView1, { color: 'black' }]}
 
@@ -61,8 +63,8 @@ const Profile = () => {
                     </TouchableOpacity>
                 </View>
 
-                <View style={{ marginTop: 15 }}>
-                    <Text style={{ color: 'black', fontSize: 15, marginLeft: 45 }}>Password</Text>
+                <View style={{ marginTop: 25 }}>
+                    <Text style={{ color: 'black', fontSize: 15, marginLeft: 55 }}>Password</Text>
                     <TextInput style={[styles.inputView1, { color: 'black' }]}
 
                         placeholderTextColor='white'

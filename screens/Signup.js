@@ -50,8 +50,8 @@ const Profile = () => {
             </View>
 
             <View >
-                <View style={{ marginTop: -354 }}>
-                <View style={{ marginTop: -124 }}>
+                <View style={{ marginTop: -394 }}>
+                <View style={{ marginTop: -184 }}>
                 <Text style={{ color: 'black', fontSize: 15,marginLeft:45}}>Username</Text>
                     <TouchableOpacity onPress={()=>{setvisiablity(!visiblity)}}>
                     <TextInput style={[styles.inputView1, { color: 'black'}]}

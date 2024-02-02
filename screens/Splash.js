@@ -18,7 +18,7 @@ const Splash = () => {
     <View style={styles.container} >
       {/* <ImageBackground blurRadius={8} source={require('../assets/Groceries.jpg')} style={styles.backgroundImage} > */}
         <View>
-          <Image source={require('../assets/logo.png')} style={{ height: 80, width: 310 ,alignSelf:'center',marginVertical:380}} />
+          <Image source={require('../assets/logo.png')} style={{ height: 72, width: 280 ,alignSelf:'center',marginVertical:380}} />
         </View>
 
       {/* </ImageBackground> */}
