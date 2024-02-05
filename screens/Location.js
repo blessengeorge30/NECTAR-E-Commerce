@@ -280,7 +280,7 @@ import {
             borderRadius: 10,
             borderWidth: 0.5,
             alignSelf: 'center',
-            marginTop: 550,
+            marginTop: 120,
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -312,7 +312,7 @@ import {
             style={{
               elevation: 15,
               marginTop: 20,
-              height: 300,
+              height: 350,
               alignSelf: 'center',
               width: '90%',
               backgroundColor: '#fff',

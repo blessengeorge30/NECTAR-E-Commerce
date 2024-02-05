@@ -91,7 +91,7 @@ const Homescreen = () => {
 
 
 
-                        <View style={{ marginVertical: 25, marginHorizontal: 5 }}>
+                        <View style={{ marginVertical: 25, marginHorizontal: 12 }}>
                             <FlatList
 
                                 data={PRODUCT_BEVERAGES}
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         
         marginBottom: 2,
-        marginHorizontal: 25
+        marginHorizontal: 30
 
     },
     button4: {
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop:2,
         marginBottom: 2,
-        marginHorizontal: 75
+        marginHorizontal: 85
 
     },
     logo: {
