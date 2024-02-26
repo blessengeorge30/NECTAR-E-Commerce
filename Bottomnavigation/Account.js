@@ -78,7 +78,7 @@ const Profile = () => {
                         </View>
                         <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6', flexDirection: "row" }}>
                             <Text style={styles.cardtext1}>Email</Text>
-                            <Text style={styles.cardtext3}>          George30@gmail.com</Text>
+                            <Text style={styles.cardtext3}>         George30@gmail.com</Text>
                         </View>
                         <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6', flexDirection: "row" }}>
                             <Text style={styles.cardtext1}>Mobile Number</Text>
