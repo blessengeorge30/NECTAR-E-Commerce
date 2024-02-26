@@ -62,7 +62,7 @@ const Router = () => {
                 // tabBarActiveBackgroundColor:'green',
                 tabBarItemStyle: {
                     marginTop: 5,
-                    marginBottom: 10
+                    marginBottom: 5
                 },
             }} >
 

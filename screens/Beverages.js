@@ -26,6 +26,10 @@ import { PRODUCT_BEVERAGES } from "../Components/DiscoverBeverages";
 const Homescreen = () => {
 
     const navigation = useNavigation();
+    const Fooditem = (item) => {
+        console.log(item)
+        navigation.navigate("FoodDetails",{item})
+    }
 
     const Fooditems = () => {
         navigation.navigate("Location")
@@ -35,7 +39,7 @@ const Homescreen = () => {
     const renderitem1 = (item) => {
 
         return (
-            <TouchableOpacity style={styles.discovercards} onPress={Fooditems} >
+            <TouchableOpacity style={styles.discovercards} onPress={()=>Fooditem(item)} >
 
                 <View style={{ marginTop: 15, alignSelf: "center" }}>
                     <Image style={{ height: 100, width: 50, marginHorizontal: 5, marginVertical: 5 }} source={item.image} />
@@ -46,7 +50,7 @@ const Homescreen = () => {
                     <View style={{ flexDirection: "row" }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 20, marginLeft: 15 }}>{item.price}</Text>
                         <TouchableOpacity>
-                            <Image style={{ height: 40, width: 40, marginLeft: 45, marginTop: 15 }} source={item.image1} />
+                            <Image style={{ height: 40, width: 40, marginLeft: 60, marginTop: 15 }} source={item.image1} />
                         </TouchableOpacity>
                         </View>
                
@@ -113,6 +117,7 @@ const styles = StyleSheet.create({
         height: 2000,
         backgroundColor: 'white',
         flex: 1
+    
     },
     backgroundImage: {
         height: '100%',
@@ -149,7 +154,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop:2,
         marginBottom: 2,
-        marginHorizontal: 85
+        marginHorizontal: 55
 
     },
     logo: {
@@ -308,8 +313,8 @@ const styles = StyleSheet.create({
     discovercards: {
         borderWidth: 0,
         borderColor: 'white',
-        width: 174,
-        height: 245,
+        width: 164,
+        height: 235,
         borderRadius: 20,
         marginTop: 5,
 

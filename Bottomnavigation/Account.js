@@ -35,14 +35,14 @@ const Profile = () => {
         <ScrollView style={styles.container}>
             <ImageBackground source={require('../assets/background1.jpg')}
                 style={styles.backgroundImage}>
-                <View style={{ marginTop: 50, marginBottom: 70 }}>
+                <View style={{ marginTop: 50, marginBottom: 80 }}>
                     <View style={{ flex: 1 }}>
 
                     </View>
                     <View style={{ flexDirection: 'row', marginTop: 4 }}>
-                        <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'white',marginLeft:160,marginRight:75 }}>Profile</Text>
+                        <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'white',marginLeft:150,marginRight:75 }}>Profile</Text>
                         <TouchableOpacity >
-                            <Image source={require('../assets/bell.png')} style={{ height: 25, width: 25 ,marginRight:14,tintColor:'black'}} />
+                            <Image source={require('../assets/bell.png')} style={{ height: 25, width: 25 ,marginRight:-14,tintColor:'black'}} />
 
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.button1}>
@@ -62,7 +62,7 @@ const Profile = () => {
                                 style={styles.logo}>
                             </Image>
                         </View>
-                        <View style={{ marginTop: 28, marginRight: 95 }}>
+                        <View style={{ marginTop: 28, marginRight: 65 }}>
                             <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>BLESSEN GEORGE</Text>
                             <Text style={{ fontSize: 16, color: 'grey' }}>ID: 8526974316</Text>
 
@@ -78,14 +78,14 @@ const Profile = () => {
                         </View>
                         <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6', flexDirection: "row" }}>
                             <Text style={styles.cardtext1}>Email</Text>
-                            <Text style={styles.cardtext3}>         George30@gmail.com</Text>
+                            <Text style={styles.cardtext3}>          George30@gmail.com</Text>
                         </View>
                         <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6', flexDirection: "row" }}>
                             <Text style={styles.cardtext1}>Mobile Number</Text>
                             <Text style={styles.cardtext2}>+91 8137066525</Text>
                         </View>
                         <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6' }}>
-                            <Text style={styles.cardtext}>Course Info</Text>
+                            <Text style={styles.cardtext}>Account Information</Text>
                         </View>
                         <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6', flexDirection: "row" }}>
                             <Text style={styles.cardtext1}>location center</Text>
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     cardtext3: {
-        marginVertical: 15,
+        marginVertical: 12,
         marginHorizontal: 75,
         color: '#000305',
         fontSize: 16,

@@ -34,7 +34,7 @@ export default function FoodDetailsScreen({route}) {
                     width: '100%',
                     position: 'absolute',
                 }}
-                source={require('../assets/splashbg.jpg')}
+                source={require('../assets/blurbg.jpeg')}
                 blurRadius={30} />
             <View style={{ flexDirection: 'row', marginTop: 45 }}>
                 <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
@@ -44,8 +44,8 @@ export default function FoodDetailsScreen({route}) {
                     <Image source={require('../assets/shareicon.png')} style={{ height: 20, width: 20, marginVertical: 35 }} />
                 </TouchableOpacity>
             </View>{console.log(item)}
-            <View style={{ justifyContent: 'center', alignItems: 'center',marginVertical:15 }}>
-                <Image style={{ height: 200, width: 250 }} source={JSON.parse(item.image)}/>
+            <View style={{ justifyContent: 'center', alignItems: 'center',marginVertical:-5 }}>
+                <Image style={{ height: 200, width: 230,resizeMode: 'contain' }} source={JSON.parse(item.image)}/>
                 <View style={{ justifyContent: 'center', alignItems: 'center' ,flexDirection:'row'}}>
                 <Image style={{ height: 4, width: 8,borderRadius:0,marginTop:15,marginHorizontal:5,tintColor:'#00c559'}} source={require('../assets/slider1.png')} />
                 <Image style={{ height: 4, width: 3,borderRadius:0,marginTop:15}} source={require('../assets/slider2.png')} />
@@ -54,7 +54,7 @@ export default function FoodDetailsScreen({route}) {
                 
 
 
-                <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 40 }}>
+                <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
                     <View style={{ borderRadius: 12, backgroundColor: '#eeeee4', flexDirection: 'row', elevation: 4 }}>
                         <TouchableOpacity style={styles.button} onPress={sub}>
                             <Image source={require('../assets/minus.png')} style={{ height: 15, width: 15 }} />
@@ -128,11 +128,11 @@ export default function FoodDetailsScreen({route}) {
 
             {/* add to cart button */}
             <View style={{ marginHorizontal: 18, flexDirection: 'row', }}>
-                <Text style={{ fontSize: 32, color: 'black', marginHorizontal: 15, marginTop: 20, fontWeight: 600, flex: 2 }}>
+                <Text style={{ fontSize: 28, color: 'black', marginHorizontal: 15, marginTop: 20, fontWeight: 600, flex: 2 }}>
                     ${item.price * Value}
                 </Text>
                 <View >
-                    <TouchableOpacity style={{ backgroundColor: '#00c559', borderRadius: 10, marginHorizontal: 15, marginTop: 20, height: 50, width: 200, alignItems: 'center', justifyContent: 'center' }}>
+                    <TouchableOpacity style={{ backgroundColor: '#00c559', borderRadius: 10, marginHorizontal: 15, marginTop: 10, height: 50, width: 200, alignItems: 'center', justifyContent: 'center' }}>
                         <Text style={{ color: 'white', fontSize: 18, fontWeight: '500' }}>Add to Cart</Text>
                     </TouchableOpacity>
                 </View>
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 32,
-        marginHorizontal: 265,
+        marginHorizontal: 240,
     },
 
     button2: {

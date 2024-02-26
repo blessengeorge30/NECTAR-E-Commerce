@@ -1,26 +1,25 @@
 export const PRODUCT_MEAT =[
-
     {
-        image:require('../assets/beef.png'),
+        id:1,
+        image:JSON.stringify(require('../assets/beef.png')),
         image1:require('../assets/add.png'),
         name: 'Beef Bone',
-        pricetag: "1 kg, price",
-        price: "$ 20.99"
+        pricetag: "7 pcs, price",
+        price: 5.99,
+        productdetails:"Beef bone, a nutrient-rich culinary ingredient, adds depth of flavor and nutritional benefits to broths, soups, and stews, while also providing collagen and minerals for joint and bone health."
+        
     },
     {
-        image:require('../assets/chicken.png'),
+        id:2,
+        image:JSON.stringify(require('../assets/chicken.png')),
         image1:require('../assets/add.png'),
-        name: 'Boiler Chicken',
-        pricetag: "1 kg , price g",
-        price: "$ 4.99"
+        name: 'Fresh Chicken',
+        pricetag: "250 gm , price in g",
+        price: 1.99,
+        productdetails:"Fresh chicken, a versatile and lean protein source, is a culinary staple known for its juicy texture, adaptable flavor profile, and suitability for various cooking methods."
     },
-    {
-        image:require('../assets/stawberrys.png'),
-        image1:require('../assets/add.png'),
-        name: 'Fresh Stawberrys',
-        pricetag: "1 kg , price in g",
-        price: "$ 12.99"
-    },
+
+    
   
 
 

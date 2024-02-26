@@ -1,48 +1,63 @@
 export const PRODUCT_BEVERAGES =[
 
     {
-        image:require('../assets/cola.png'),
+        id:1,
+        image:JSON.stringify(require('../assets/cola.png')),     
         image1:require('../assets/add.png'),
         name: 'Coco-Cola can  ',
-        pricetag: "1 kg , price in g",
-        price: "$ 4.99"
+        pricetag: "450 ml soft-drink ",
+        price: 4.99,
+        productdetails: "Coca-Cola is a globally renowned carbonated beverage brand, known for its iconic red label and signature sweet, fizzy taste. First introduced in 1886, it has become a symbol of refreshment and is enjoyed by millions worldwide."
     },
     {
-        image:require('../assets/sprite.png'),
+        id:1,
+        image:JSON.stringify(require('../assets/sprite.png')),
         image1:require('../assets/add.png'),
-        name: 'Sprite Can  ',
-        pricetag: "1 kg , price g",
-        price: "$ 2.99"
+        name: 'Sprite 450ml Can  ',
+        pricetag: "450 ml soft-drink ",
+        price:  2.99,
+        productdetails:"A sprite is a two-dimensional graphic element or character used in computer graphics and video games, typically representing objects, characters, or backgrounds. Sprites are often composed of pixel art and are manipulated to create animations or interactive visuals in digital media."
     },
    
     {
-        image:require('../assets/pepsi.png'),
+        id:1,
+        image:JSON.stringify(require('../assets/pepsi.png')),
+        
         image1:require('../assets/add.png'),
-        name: 'Pepsi can   ',
-        pricetag: "1 kg , price in g",
-        price: "$ 2.99"
+        name: 'Pepsi 450ml can   ',
+        pricetag: "450 ml soft-drink ",
+        price: 2.99,
+        productdetails:"A Pepsi is a two-dimensional graphic element or character used in computer graphics and video games, typically representing objects, characters, or backgrounds. Sprites are often composed of pixel art and are manipulated to create animations or interactive visuals in digital media."
     },
     {
+        id:1,
+        image:JSON.stringify(require('../assets/fanta.png')),
         image:require('../assets/fanta.png'),
         image1:require('../assets/add.png'),
-        name: 'Fanta can  ',
-        pricetag: "1 kg, price",
-        price: "$ 1.99"
+        name: 'Fanta 450ml can  ',
+        pricetag: "450 ml soft-drink ",
+        price: 1.99,
+        productdetails:"A Pepsi is a two-dimensional graphic element or character used in computer graphics and video games, typically representing objects, characters, or backgrounds. Sprites are often composed of pixel art and are manipulated to create animations or interactive visuals in digital media."
     },
     {
         image:require('../assets/orangejuice.png'),
         image1:require('../assets/add.png'),
         name: 'Orange Juice  ',
-        pricetag: "1 kg , price in g",
-        price: "$ 8.99"
+        pricetag: "450 ml soft-drink ",
+        price:  8.99,
+        productdetails:"Tropicana orange juice is a renowned and refreshing beverage known for its pure and natural taste,  making it a popular choice for those seeking a wholesome and delicious source of hydration."
+
+
     },
     {
         image:require('../assets/mangojuice.png'),
         image1:require('../assets/add.png'),
         name: 'Mango Juice   ',
-        pricetag: "1 kg , price in g",
-        price: "$ 5.99"
+        pricetag: "450 ml soft-drink ",
+        price:5.99,
+        productdetails:"Tropicana mango juice is a renowned and refreshing beverage known for its pure and natural taste,  making it a popular choice for those seeking a wholesome and delicious source of hydration."
     },
+    
   
 
 

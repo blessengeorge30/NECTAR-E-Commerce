@@ -39,9 +39,9 @@ const Profile = () => {
                         </TouchableOpacity>
                         <View style={{marginTop:10}}>
                         <Image source={require('../assets/originallogo.png')} style={{ height: 60, width: 50, alignSelf: 'center' }} />
-                        {visiblity == true ? <View style={{ marginTop: 80 }}>
-                            <Text style={{ color: 'black', fontSize: 27, marginBottom: 12, alignSelf: 'center', fontWeight: "500" }}>Login</Text>
-                            <Text style={{ color: 'grey', fontSize: 15, alignSelf: 'center', marginBottom: 2 }}> Enter your emails and password</Text>
+                        {visiblity == true ? <View style={{ marginTop: 50 }}>
+                            <Text style={{ color: 'black', fontSize: 27, marginBottom: 8, alignSelf: 'center', fontWeight: "500" }}>Login</Text>
+                            <Text style={{ color: 'grey', fontSize: 13, alignSelf: 'center', marginBottom: 2 }}> Enter your emails and password</Text>
                             
                         </View> : null}
                         </View>

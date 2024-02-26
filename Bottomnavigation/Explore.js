@@ -65,7 +65,7 @@ const Homescreen = () => {
                         style={styles.backgroundImage}>
                             <View style={{ marginHorizontal:15}}>
                         <View style={{ marginTop: 75, flexDirection: 'row' }}>
-                            <Image source={require('../assets/originallogo.png')} style={{ height: 40, width: 35, marginLeft: 185 }} />
+                            <Image source={require('../assets/originallogo.png')} style={{ height: 40, width: 35, marginLeft: 175 }} />
                             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
                                 <Image source={require('../assets/cart.png')} style={{ height: 25, width: 25 }} />
                             </TouchableOpacity>
@@ -73,7 +73,7 @@ const Homescreen = () => {
 
                         <View style={{ marginTop: 15, flexDirection: 'row' }}>
 
-                            <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 130, fontWeight: "500" }}>Find Products</Text>
+                            <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 120, fontWeight: "500" }}>Find Products</Text>
 
 
                         </View>
@@ -128,9 +128,9 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: -5,
+        marginTop: 5,
         marginBottom: 2,
-        marginHorizontal: 105,
+        marginHorizontal: 95,
 
 
 
@@ -170,11 +170,11 @@ const styles = StyleSheet.create({
         paddingHorizontal: 25,
         marginRight: 15,
         height: 40,
-        width: 350,
+        width: 340,
 
         color: 'black',
         marginTop: 10,
-        marginLeft: 25
+        marginLeft: 10
 
     },
 
@@ -291,12 +291,12 @@ const styles = StyleSheet.create({
     discovercards: {
         borderWidth: 0,
         borderColor: 'white',
-        width: 174,
+        width: 165,
         height: 190,
         borderRadius: 20,
         marginTop: 5,
 
-        marginLeft: 15,
+        marginLeft: 12,
         marginVertical: 15,
         // alignItems: "center",
         // justifyContent: 'center',

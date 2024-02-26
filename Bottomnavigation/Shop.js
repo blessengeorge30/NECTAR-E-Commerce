@@ -13,7 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import { PRODUCT_HOME } from "../Components/DiscoverFood";
 import { PRODUCT_ITEMS } from "../Components/Discoverveggies";
 import { PRODUCT_MEAT } from "../Components/DiscoverMeat";
-import { PRODUCT_GROCERIES } from "../Components/Discovergroceries";
+import { PRODUCT_GROCERIES} from "../Components/Discovergroceries";
 import { PRODUCT_CARD } from "../Components/Recomended";
 
 
@@ -38,14 +38,14 @@ const Profile = () => {
                 <View >
                     <TouchableOpacity onPress={()=>Fooditems(item)}>
                         <Image style={{ height: 80, width: 105, marginLeft: 30, marginTop: 25 }} source={item.image} />
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 15 }}>{item.name}</Text>
-                        <Text style={{ fontSize: 18, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 15 }}>{item.pricetag}</Text>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 10 }}>{item.name}</Text>
+                        <Text style={{ fontSize: 18, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 10 }}>{item.pricetag}</Text>
                     </TouchableOpacity>
 
                     <View style={{ flexDirection: "row" }}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 15 }}>{item.price}</Text>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 12 }}>{item.price}</Text>
                         <TouchableOpacity>
-                            <Image style={{ height: 45, width: 45, marginLeft: 40, marginTop: 15 }} source={item.image1} />
+                            <Image style={{ height: 45, width: 45, marginLeft: 50, marginTop: 15 }} source={item.image1} />
                         </TouchableOpacity>
 
                     </View>
@@ -60,13 +60,15 @@ const Profile = () => {
 
             <View style={styles.discoverFooditems}>
                 <View >
+                <TouchableOpacity onPress={()=>Fooditems(item)}>
                     <Image style={{ height: 85, width: 110, marginLeft: 30, marginTop: 25 }} source={item.image} />
                     <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 15 }}>{item.name}</Text>
                     <Text style={{ fontSize: 15, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 15 }}>{item.pricetag}</Text>
+                    </TouchableOpacity>
                     <View style={{ flexDirection: "row" }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 15 }}>{item.price}</Text>
                         <TouchableOpacity>
-                            <Image style={{ height: 45, width: 45, marginLeft: 40, marginTop: 15 }} source={item.image1} />
+                            <Image style={{ height: 45, width: 45, marginLeft: 50, marginTop: 15 }} source={item.image1} />
                         </TouchableOpacity>
 
                     </View>
@@ -81,13 +83,15 @@ const Profile = () => {
 
             <View style={styles.discoverFooditems}>
                 <View >
+                <TouchableOpacity onPress={()=>Fooditems(item)}>
                     <Image style={{ height: 80, width: 110, marginLeft: 30, marginTop: 25 }} source={item.image} />
                     <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 15 }}>{item.name}</Text>
                     <Text style={{ fontSize: 18, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 15 }}>{item.pricetag}</Text>
+                    </TouchableOpacity>
                     <View style={{ flexDirection: "row" }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 15 }}>{item.price}</Text>
                         <TouchableOpacity>
-                            <Image style={{ height: 45, width: 45, marginLeft: 40, marginTop: 15 }} source={item.image1} />
+                            <Image style={{ height: 45, width: 45, marginLeft: 50, marginTop: 15 }} source={item.image1} />
                         </TouchableOpacity>
 
                     </View>
@@ -117,7 +121,7 @@ const Profile = () => {
 
             <View style={{justifyContent:"center"}}>
                 <View >
-                    <ImageBackground source={require('../assets/blurbg.jpeg')}
+                    <ImageBackground  blurRadius={15} source={require('../assets/blurbg.png')}
                         style={styles.backgroundImage}>
                             <View style={{marginLeft:0}}>
                         <View style={{ marginTop: 85, flexDirection: 'row'  , justifyContent:"space-between", marginBottom:35}}>
@@ -130,7 +134,7 @@ const Profile = () => {
                             </TouchableOpacity>
                             </View>
                             <View style={{flexDirection:'row',marginLeft:70}}>
-                                <Image source={require('../assets/Exclude.png')} style={{ height: 20, width: 18, alignSelf: 'center', marginLeft: 25, marginTop: -10 }} />
+                                <Image source={require('../assets/Exclude.png')} style={{ height: 16, width: 14, alignSelf: 'center', marginLeft: 30, marginTop: -14 }} />
                                 <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 10, fontWeight: "500" }}>Thrissur, Kerala</Text>
                             </View>
 
@@ -149,7 +153,7 @@ const Profile = () => {
                                 placeholderTextColor='grey'
                                 maxLength={12}></TextInput>
                         </View>
-                        <Image source={require('../assets/banner.png')} style={{ height: 100, width: 360, marginHorizontal: 25, marginTop: 25, borderRadius: 15 }} />
+                        <Image source={require('../assets/banner.png')} style={{ height: 80, width: 345, marginHorizontal: 25, marginTop: 25, borderRadius: 15 }} />
                         <View style={{ flexDirection: "row" }}>
                             <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 45, fontWeight: "bold" }}>Exclusive Offers</Text>
                             <TouchableOpacity style={{ flexDirection: "row" }} >
@@ -157,7 +161,7 @@ const Profile = () => {
                                 <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 22, borderRadius: 15 }} />
                             </TouchableOpacity>
                         </View>
-                        <View style={{ marginVertical: 5, marginHorizontal: 15 }} >
+                        <View style={{ marginVertical: 5, marginHorizontal: 8 }} >
                             <ScrollView horizontal={true}
                                 showsHorizontalScrollIndicator={false}>
                                 {
@@ -174,7 +178,7 @@ const Profile = () => {
                                 <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 22, borderRadius: 15 }} />
                             </TouchableOpacity>
                         </View>
-                        <View style={{ marginVertical: 5, marginHorizontal: 15 }}>
+                        <View style={{ marginVertical: 5, marginHorizontal: 8 }}>
                             <ScrollView horizontal={true}
                                 showsHorizontalScrollIndicator={false}>
                                 {
@@ -188,10 +192,10 @@ const Profile = () => {
                             <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 110, fontWeight: "500" }}>Groceries</Text>
                             <TouchableOpacity style={{ flexDirection: "row" }} >
                                 <Text style={styles.buttontext1}>  see all</Text>
-                                <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 22, borderRadius: 15 }} />
+                                <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10,marginTop:5, borderRadius: 15 }} />
                             </TouchableOpacity>
                         </View>
-                        <View style={{ marginVertical: 5, marginHorizontal: 15 }}>
+                        <View style={{ marginVertical: 5, marginHorizontal: 8}}>
                             <ScrollView horizontal={true}
                                 showsHorizontalScrollIndicator={false}>
                                 {
@@ -202,7 +206,7 @@ const Profile = () => {
                             </ScrollView>
                         </View>
 
-                        <View style={{ marginVertical: 5, marginHorizontal: 15 }}>
+                        <View style={{ marginVertical: 5, marginHorizontal: 8}}>
                             <ScrollView horizontal={true}>
                                 {
                                     PRODUCT_MEAT?.map((item) => {
@@ -243,7 +247,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 2,
-        marginRight: 30,
+        marginRight: 25,
         
 
     },
@@ -259,7 +263,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',      
         marginBottom: 2,
-        marginLeft: 25,
+        marginLeft: 18,
        
 
     },
@@ -298,7 +302,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 25,
         marginRight: 15,
         height: 40,
-        width: 360,
+        width: 345,
 
         color: 'black',
         marginTop: 10,
@@ -370,7 +374,8 @@ const styles = StyleSheet.create({
         color: 'green',
         fontWeight: '500',
         height: 25,
-        marginLeft: 72,
+        marginLeft: 60,
+        marginTop:5,
         fontSize: 16,
 
         alignSelf: "center",
@@ -401,10 +406,10 @@ const styles = StyleSheet.create({
     discoverFooditems: {
         borderWidth: 0,
         borderColor: 'white',
-        width: 173,
-        height: 255,
+        width: 170,
+        height: 245,
         borderRadius: 10,
-        marginHorizontal: 15,
+        marginHorizontal: 12,
         backgroundColor: 'rgba(255,255,255,0.7)'
     },
     discovergros: {
@@ -413,7 +418,8 @@ const styles = StyleSheet.create({
         width: 203,
         height: 85,
         borderRadius: 10,
-        marginHorizontal: 10,
+        marginHorizontal: 5,
+        marginBottom:25,
         backgroundColor: '#E2FFEC'
     },
 

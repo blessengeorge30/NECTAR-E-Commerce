@@ -5,7 +5,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const [text, setText] = useState('Not yet scanned')
+  const [text, setText] = useState('  ')
 
   const askForCameraPermission = () => {
     (async () => {
@@ -22,8 +22,15 @@ export default function App() {
   // What happens when we scan the bar code
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
+    
+    // const arrayOfObjects = JSON.parse(data);
+    // setText(arrayOfObjects);
+    // console.log(text);
+
     setText(data)
     console.log('Type: ' + type + '\nData: ' + data)
+    
+
   };
 
   // Check permissions and return the screens
@@ -49,7 +56,8 @@ export default function App() {
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
           style={{ height: 600, width: 600 }} />
       </View>
-      <Text style={styles.maintext}>{text}</Text>
+      
+        <Text style={styles.maintext}>{text}</Text>
 
       {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='green' />}
     </View>
