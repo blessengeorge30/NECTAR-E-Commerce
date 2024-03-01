@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',      
         marginBottom: 2,
-        marginLeft: 65,
+        marginLeft: 45,
         marginTop:15
        
 

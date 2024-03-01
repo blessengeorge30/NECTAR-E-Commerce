@@ -13,30 +13,44 @@ import { useNavigation } from "@react-navigation/native";
 import { PRODUCT_HOME } from "../Components/DiscoverFood";
 import { PRODUCT_ITEMS } from "../Components/Discoverveggies";
 import { PRODUCT_MEAT } from "../Components/DiscoverMeat";
-import { PRODUCT_GROCERIES} from "../Components/Discovergroceries";
+import { PRODUCT_GROCERIES } from "../Components/Discovergroceries";
 import { PRODUCT_CARD } from "../Components/Recomended";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../CartReducer";
 
 
 
 const Profile = () => {
+
+    const cart = useSelector((state) => state.cart.cart);
+    console.log(cart);
+    const dispatch = useDispatch()
+
+    const addItemToCart = (item) => {
+        dispatch(addToCart(item));
+    };
+
+    const removeItemFromCart = (item) => {
+        dispatch(removeFromCart(item));
+    };
 
     const navigation = useNavigation();
 
 
     const Fooditems = (item) => {
         console.log(item)
-        navigation.navigate("FoodDetails",{item})
+        navigation.navigate("FoodDetails", { item })
     }
     const Signup = () => {
         navigation.navigate("Qrcode")
     }
     const renderitem = (item) => {
-        
+
         return (
 
             <View style={styles.discoverFooditems}>
                 <View >
-                    <TouchableOpacity onPress={()=>Fooditems(item)}>
+                    <TouchableOpacity onPress={() => Fooditems(item)}>
                         <Image style={{ height: 80, width: 105, marginLeft: 30, marginTop: 25 }} source={item.image} />
                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 10 }}>{item.name}</Text>
                         <Text style={{ fontSize: 18, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 10 }}>{item.pricetag}</Text>
@@ -44,10 +58,20 @@ const Profile = () => {
 
                     <View style={{ flexDirection: "row" }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 12 }}>{item.price}</Text>
-                        <TouchableOpacity>
-                            <Image style={{ height: 45, width: 45, marginLeft: 50, marginTop: 15 }} source={item.image1} />
-                        </TouchableOpacity>
 
+                        {cart.some((value) => value.id == item.id) ? (
+
+                            <TouchableOpacity
+                             onPress={() => removeItemFromCart(item)}>
+                                <Image style={{ height: 45, width: 45, marginLeft: 50, marginTop: 15 }} source={item.image1} />
+                            </TouchableOpacity>
+
+                        ) : (
+
+                            <TouchableOpacity onPress={() => addItemToCart(item)}>
+                                <Image style={{ height: 45, width: 45, marginLeft: 50, marginTop: 15 }} source={item.image2} />
+                            </TouchableOpacity>
+                        )}
                     </View>
 
                 </View>
@@ -60,10 +84,10 @@ const Profile = () => {
 
             <View style={styles.discoverFooditems}>
                 <View >
-                <TouchableOpacity onPress={()=>Fooditems(item)}>
-                    <Image style={{ height: 85, width: 110, marginLeft: 30, marginTop: 25 }} source={item.image} />
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 15 }}>{item.name}</Text>
-                    <Text style={{ fontSize: 15, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 15 }}>{item.pricetag}</Text>
+                    <TouchableOpacity onPress={() => Fooditems(item)}>
+                        <Image style={{ height: 85, width: 110, marginLeft: 30, marginTop: 25 }} source={item.image} />
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 15 }}>{item.name}</Text>
+                        <Text style={{ fontSize: 15, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 15 }}>{item.pricetag}</Text>
                     </TouchableOpacity>
                     <View style={{ flexDirection: "row" }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 15 }}>{item.price}</Text>
@@ -83,10 +107,10 @@ const Profile = () => {
 
             <View style={styles.discoverFooditems}>
                 <View >
-                <TouchableOpacity onPress={()=>Fooditems(item)}>
-                    <Image style={{ height: 80, width: 110, marginLeft: 30, marginTop: 25 }} source={item.image} />
-                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 15 }}>{item.name}</Text>
-                    <Text style={{ fontSize: 18, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 15 }}>{item.pricetag}</Text>
+                    <TouchableOpacity onPress={() => Fooditems(item)}>
+                        <Image style={{ height: 80, width: 110, marginLeft: 30, marginTop: 25 }} source={item.image} />
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 15 }}>{item.name}</Text>
+                        <Text style={{ fontSize: 18, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 15 }}>{item.pricetag}</Text>
                     </TouchableOpacity>
                     <View style={{ flexDirection: "row" }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 15 }}>{item.price}</Text>
@@ -115,25 +139,29 @@ const Profile = () => {
         )
     }
 
+
+
+    
+
     return (
         <ScrollView style={styles.container}>
 
 
-            <View style={{justifyContent:"center"}}>
+            <View style={{ justifyContent: "center" }}>
                 <View >
-                    <ImageBackground  blurRadius={15} source={require('../assets/blurbg.png')}
+                    <ImageBackground blurRadius={15} source={require('../assets/blurbg.png')}
                         style={styles.backgroundImage}>
-                            <View style={{marginLeft:0}}>
-                        <View style={{ marginTop: 85, flexDirection: 'row'  , justifyContent:"space-between", marginBottom:35}}>
-                            <TouchableOpacity onPress={Signup} style={styles.button4}>
-                                <Image source={require('../assets/qrcode.png')} style={{ height: 20, width: 20 }} />
-                            </TouchableOpacity>
-                            <Image source={require('../assets/originallogo.png')} style={{ height: 40, width: 35, alignSelf: 'center'  }} />
-                            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
-                                <Image source={require('../assets/cart.png')} style={{ height: 25, width: 25 }} />
-                            </TouchableOpacity>
+                        <View style={{ marginLeft: 0 }}>
+                            <View style={{ marginTop: 85, flexDirection: 'row', justifyContent: "space-between", marginBottom: 35 }}>
+                                <TouchableOpacity onPress={Signup} style={styles.button4}>
+                                    <Image source={require('../assets/qrcode.png')} style={{ height: 20, width: 20 }} />
+                                </TouchableOpacity>
+                                <Image source={require('../assets/originallogo.png')} style={{ height: 40, width: 35, alignSelf: 'center' }} />
+                                <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
+                                    <Image source={require('../assets/cart.png')} style={{ height: 25, width: 25 }} />
+                                </TouchableOpacity>
                             </View>
-                            <View style={{flexDirection:'row',marginLeft:70}}>
+                            <View style={{ flexDirection: 'row', marginLeft: 70 }}>
                                 <Image source={require('../assets/Exclude.png')} style={{ height: 16, width: 14, alignSelf: 'center', marginLeft: 30, marginTop: -14 }} />
                                 <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 10, fontWeight: "500" }}>Thrissur, Kerala</Text>
                             </View>
@@ -144,77 +172,77 @@ const Profile = () => {
 
 
 
-                      
-                        <View>
-                            <TextInput style={styles.inputView}
 
-                                placeholder='Search store'
+                            <View>
+                                <TextInput style={styles.inputView}
 
-                                placeholderTextColor='grey'
-                                maxLength={12}></TextInput>
-                        </View>
-                        <Image source={require('../assets/banner.png')} style={{ height: 80, width: 345, marginHorizontal: 25, marginTop: 25, borderRadius: 15 }} />
-                        <View style={{ flexDirection: "row" }}>
-                            <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 45, fontWeight: "bold" }}>Exclusive Offers</Text>
-                            <TouchableOpacity style={{ flexDirection: "row" }} >
-                                <Text style={styles.buttontext1}>  see all</Text>
-                                <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 22, borderRadius: 15 }} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{ marginVertical: 5, marginHorizontal: 8 }} >
-                            <ScrollView horizontal={true}
-                                showsHorizontalScrollIndicator={false}>
-                                {
-                                    PRODUCT_HOME?.map((item) => {
-                                        return renderitem(item);
-                                    })
-                                }
-                            </ScrollView>
-                        </View>
-                        <View style={{ flexDirection: "row" }}>
-                            <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 65, fontWeight: "500" }}>Fresh  Veggies</Text>
-                            <TouchableOpacity style={{ flexDirection: "row" }} >
-                                <Text style={styles.buttontext1}>  see all</Text>
-                                <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 22, borderRadius: 15 }} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{ marginVertical: 5, marginHorizontal: 8 }}>
-                            <ScrollView horizontal={true}
-                                showsHorizontalScrollIndicator={false}>
-                                {
-                                    PRODUCT_ITEMS?.map((item) => {
-                                        return renderitems(item);
-                                    })
-                                }
-                            </ScrollView>
-                        </View>
-                        <View style={{ flexDirection: "row" }}>
-                            <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 110, fontWeight: "500" }}>Groceries</Text>
-                            <TouchableOpacity style={{ flexDirection: "row" }} >
-                                <Text style={styles.buttontext1}>  see all</Text>
-                                <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10,marginTop:5, borderRadius: 15 }} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{ marginVertical: 5, marginHorizontal: 8}}>
-                            <ScrollView horizontal={true}
-                                showsHorizontalScrollIndicator={false}>
-                                {
-                                    PRODUCT_GROCERIES?.map((item) => {
-                                        return renderitem2(item);
-                                    })
-                                }
-                            </ScrollView>
-                        </View>
+                                    placeholder='Search store'
 
-                        <View style={{ marginVertical: 5, marginHorizontal: 8}}>
-                            <ScrollView horizontal={true}>
-                                {
-                                    PRODUCT_MEAT?.map((item) => {
-                                        return renderitem1(item);
-                                    })
-                                }
-                            </ScrollView>
-                        </View>
+                                    placeholderTextColor='grey'
+                                    maxLength={12}></TextInput>
+                            </View>
+                            <Image source={require('../assets/banner.png')} style={{ height: 80, width: 345, marginHorizontal: 25, marginTop: 25, borderRadius: 15 }} />
+                            <View style={{ flexDirection: "row" }}>
+                                <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 45, fontWeight: "bold" }}>Exclusive Offers</Text>
+                                <TouchableOpacity style={{ flexDirection: "row" }} >
+                                    <Text style={styles.buttontext1}>  see all</Text>
+                                    <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 22, borderRadius: 15 }} />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ marginVertical: 5, marginHorizontal: 8 }} >
+                                <ScrollView horizontal={true}
+                                    showsHorizontalScrollIndicator={false}>
+                                    {
+                                        PRODUCT_HOME?.map((item) => {
+                                            return renderitem(item);
+                                        })
+                                    }
+                                </ScrollView>
+                            </View>
+                            <View style={{ flexDirection: "row" }}>
+                                <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 65, fontWeight: "500" }}>Fresh  Veggies</Text>
+                                <TouchableOpacity style={{ flexDirection: "row" }} >
+                                    <Text style={styles.buttontext1}>  see all</Text>
+                                    <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 22, borderRadius: 15 }} />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ marginVertical: 5, marginHorizontal: 8 }}>
+                                <ScrollView horizontal={true}
+                                    showsHorizontalScrollIndicator={false}>
+                                    {
+                                        PRODUCT_ITEMS?.map((item) => {
+                                            return renderitems(item);
+                                        })
+                                    }
+                                </ScrollView>
+                            </View>
+                            <View style={{ flexDirection: "row" }}>
+                                <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 110, fontWeight: "500" }}>Groceries</Text>
+                                <TouchableOpacity style={{ flexDirection: "row" }} >
+                                    <Text style={styles.buttontext1}>  see all</Text>
+                                    <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 5, borderRadius: 15 }} />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ marginVertical: 5, marginHorizontal: 8 }}>
+                                <ScrollView horizontal={true}
+                                    showsHorizontalScrollIndicator={false}>
+                                    {
+                                        PRODUCT_GROCERIES?.map((item) => {
+                                            return renderitem2(item);
+                                        })
+                                    }
+                                </ScrollView>
+                            </View>
+
+                            <View style={{ marginVertical: 5, marginHorizontal: 8 }}>
+                                <ScrollView horizontal={true}>
+                                    {
+                                        PRODUCT_MEAT?.map((item) => {
+                                            return renderitem1(item);
+                                        })
+                                    }
+                                </ScrollView>
+                            </View>
                         </View>
                     </ImageBackground>
                 </View>
@@ -248,7 +276,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 2,
         marginRight: 25,
-        
+
 
     },
     button4: {
@@ -261,10 +289,10 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         borderRadius: 8,
         justifyContent: 'center',
-        alignItems: 'center',      
+        alignItems: 'center',
         marginBottom: 2,
         marginLeft: 18,
-       
+
 
     },
     logo: {
@@ -375,7 +403,7 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         height: 25,
         marginLeft: 60,
-        marginTop:5,
+        marginTop: 5,
         fontSize: 16,
 
         alignSelf: "center",
@@ -419,7 +447,7 @@ const styles = StyleSheet.create({
         height: 85,
         borderRadius: 10,
         marginHorizontal: 5,
-        marginBottom:25,
+        marginBottom: 25,
         backgroundColor: '#E2FFEC'
     },
 
