@@ -15,7 +15,7 @@ import FoodDetails from './screens/FoodDetails';
 import Beverages from './screens/Beverages';
 import Location from './screens/Location';
 import Qrcode from './screens/Qrcode';
-import Store from './Store';
+import { Store } from './Store';
 import { Provider } from 'react-redux';
 
 

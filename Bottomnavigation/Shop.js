@@ -16,7 +16,7 @@ import { PRODUCT_MEAT } from "../Components/DiscoverMeat";
 import { PRODUCT_GROCERIES } from "../Components/Discovergroceries";
 import { PRODUCT_CARD } from "../Components/Recomended";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../CartReducer";
+import { addToCart, removeFromCart } from "../MyProductSlice";
 
 
 
@@ -49,35 +49,47 @@ const Profile = () => {
         return (
 
             <View style={styles.discoverFooditems}>
-                <View >
-                    <TouchableOpacity onPress={() => Fooditems(item)}>
-                        <Image style={{ height: 80, width: 105, marginLeft: 30, marginTop: 25 }} source={item.image} />
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 10 }}>{item.name}</Text>
-                        <Text style={{ fontSize: 18, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 10 }}>{item.pricetag}</Text>
-                    </TouchableOpacity>
-
-                    <View style={{ flexDirection: "row" }}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 12 }}>{item.price}</Text>
-
-                        {cart.some((value) => value.id == item.id) ? (
-
-                            <TouchableOpacity
-                             onPress={() => removeItemFromCart(item)}>
-                                <Image style={{ height: 45, width: 45, marginLeft: 50, marginTop: 15 }} source={item.image1} />
+            <View>
+                <TouchableOpacity onPress={() => Fooditems(item)}>
+                    <Image style={{ height: 80, width: 110, marginLeft: 30, marginTop: 25 }} source={item.image} />
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 15, marginLeft: 15 }}>{item.name}</Text>
+                    <Text style={{ fontSize: 18, fontWeight: '400', color: 'grey', marginTop: 0, marginLeft: 15 }}>{item.pricetag}</Text>
+                </TouchableOpacity>
+                <View style={{ flexDirection: "row" }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 15 }}>{item.price}</Text>
+                    {item.qty === 0 ? (
+                        <TouchableOpacity onPress={() => addItemToCart(item)}>
+                            <Image style={{ height: 45, width: 45, marginLeft: 50, marginTop: 15 }} source={item.image1} />
+                        </TouchableOpacity>
+                    ) : null}
+                    {item.qty === 0 ? null : (
+                        <TouchableOpacity style={{
+                            backgroundColor: 'green',
+                            borderRadius: 5,
+                            height: 25,
+                            justifyContent: 'center',
+                        }}>
+                            <Text style={{ color: 'white', marginBottom: 5, marginTop: 5, marginHorizontal: 5 }}>-</Text>
+                        </TouchableOpacity>
+                    )}
+                    {item.qty === 0 ? null : (
+                        <View style={{ flexDirection: 'row', marginTop: 25 }}>
+                            <Text style={{ marginLeft: 1, marginTop: 5 }}>{'0'}</Text>
+                            <TouchableOpacity style={{
+                                backgroundColor: 'green',
+                                borderRadius: 5,
+                                height: 25,
+                                justifyContent: 'center',
+                            }}>
+                                <Text style={{ color: 'white', marginBottom: 5, marginTop: 5, marginHorizontal: 5 }}>+</Text>
                             </TouchableOpacity>
-
-                        ) : (
-
-                            <TouchableOpacity onPress={() => addItemToCart(item)}>
-                                <Image style={{ height: 45, width: 45, marginLeft: 50, marginTop: 15 }} source={item.image2} />
-                            </TouchableOpacity>
-                        )}
-                    </View>
-
+                        </View>
+                    )}
                 </View>
             </View>
-        )
-    }
+        </View>
+    );
+};
     const renderitems = (item) => {
 
         return (
@@ -141,7 +153,7 @@ const Profile = () => {
 
 
 
-    
+
 
     return (
         <ScrollView style={styles.container}>
