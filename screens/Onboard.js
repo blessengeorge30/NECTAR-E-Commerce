@@ -24,7 +24,7 @@ const Onboard = () => {
 
     return (
         <View style={styles.container}>
-            <ImageBackground blurRadius={18} source={require('../assets/Onboardbg.png')}
+            <ImageBackground blurRadius={12} source={require('../assets/Onboardbg.png')}
                 style={styles.backgroundImage}>
                     <View style={{marginTop:450,marginBottom:5,marginHorizontal:180}}>
                         <Image source={require('../assets/mainlogo.png')} style={{ height:60, width: 50}} />

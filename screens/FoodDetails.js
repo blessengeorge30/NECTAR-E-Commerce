@@ -4,12 +4,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import { addToFavorites } from '../Redux/action/favoriteaction';
+import { removeFromFavorites } from '../Redux/action/favoriteaction';
 
 
 import { foodItems } from '../constants';
 
 
-    const FoodDetailsScreen = ({ addToFavorites, route }) => {
+const FoodDetailsScreen = ({ addToFavorites, removeFromFavorites, route }) => {
 
         const handleAddToFavorites = (itemToAdd) => {
             setPressed(!isPressed);
