@@ -14,7 +14,7 @@ export const PRODUCT_ITEMS =[
         id:2,
         image:JSON.stringify(require('../assets/ginger.png')),
         image1:require('../assets/add.png'),
-        name: 'Freshly picked Ginger',
+        name: 'Hand picked Ginger',
         pricetag: "250 gm , price in g",
         price: 1.99,
         productdetails:"Ginger are nutritious. Ginger may be good for your heart. As part of a healtful and varied diet."

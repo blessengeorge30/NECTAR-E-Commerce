@@ -41,7 +41,7 @@ const Homescreen = () => {
         return (
             <TouchableOpacity style={styles.discovercards} onPress={()=>Fooditem(item)} >
 
-                <View style={{ marginTop: 15, alignSelf: "center" }}>
+                <View style={{ marginTop: 15, alignSelf: "center", }}>
                     <Image style={{ height: 100, width: 50, marginHorizontal: 5, marginVertical: 5 }} source={item.image} />
                     </View>
                     <Text style={{ marginLeft: 15, marginTop: 5, fontSize: 17, fontWeight: 'bold', color: 'black' }}>{item.name}</Text>
@@ -95,7 +95,7 @@ const Homescreen = () => {
 
 
 
-                        <View style={{ marginVertical: 25, marginHorizontal: 12 }}>
+                        <View style={{ marginVertical: 25, marginHorizontal: 8 }}>
                             <FlatList
 
                                 data={PRODUCT_BEVERAGES}
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         
         marginBottom: 2,
-        marginHorizontal: 30
+        marginHorizontal: 25
 
     },
     button4: {
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
 
         marginLeft: 18,
-        marginVertical: 15,
+        marginVertical: 12,
         // alignItems: "center",
         // justifyContent: 'center',
         backgroundColor: 'rgba(255,255,255,0.5)'

@@ -50,7 +50,7 @@ const Router = () => {
         <Tab.Navigator
             screenOptions={{
                 tabBarStyle: {
-                    height: 85,
+                    height: 80,
                     backgroundColor: 'black',
                     borderTopLeftRadius:15,
                     borderTopRightRadius:15

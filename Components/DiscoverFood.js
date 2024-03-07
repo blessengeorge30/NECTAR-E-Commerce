@@ -28,6 +28,7 @@ export const PRODUCT_HOME = [
         image: JSON.stringify(require('../assets/apples.png')),
         image1: require('../assets/add.png'),
         image2: require('../assets/minus.png'),
+        name: 'Red Apples',
         pricetag: "1 kg , price in g",
         price: 5.99,
         qty:0,

@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  TextInput,
+  ScrollView,
+  TouchableOpacity,
+  ImageBackground,
+  Button
+} from "react-native";
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { useNavigation } from "@react-navigation/native";
+
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -13,6 +26,8 @@ export default function App() {
       setHasPermission(status === 'granted');
     })()
   }
+
+  const navigation = useNavigation();
 
   // Request Camera Permission
   useEffect(() => {
@@ -51,11 +66,20 @@ export default function App() {
   // Return the View
   return (
     <View style={styles.container}>
-      <View style={styles.barcodebox}>
+      <View>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
+                    <Image source={require('../assets/back.png')} style={{ height: 20, width: 20, marginVertical: 35 }} />
+                </TouchableOpacity>
+      </View>
+     <View style={{alignItems:'center',justifyContent:'center',marginTop:20}}>
+      <Text style={{fontSize:18,fontWeight:'500',marginBottom:50}}>Scan the QR-Code of the Product</Text>
+     <View style={styles.barcodebox}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
           style={{ height: 600, width: 600 }} />
       </View>
+     </View>
+     
       
         <Text style={styles.maintext}>{text}</Text>
 
@@ -68,8 +92,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+
   },
   maintext: {
     fontSize: 25,
@@ -83,5 +106,20 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: 30,
     backgroundColor: 'green'
-  }
+  },
+  button3: {
+    height: 35,
+    width: 45,
+    borderColor: '#eee',
+    elevation: 15,
+    borderWidth: 1,
+    backgroundColor: 'white',
+    paddingVertical: 12,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 78,
+    marginHorizontal: 32
+
+},
 });

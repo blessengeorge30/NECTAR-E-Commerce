@@ -15,7 +15,8 @@ import FoodDetails from './screens/FoodDetails';
 import Beverages from './screens/Beverages';
 import Location from './screens/Location';
 import Qrcode from './screens/Qrcode';
-import { Store } from './Store';
+import AccountID from './screens/AccountID';
+import store from './Redux/store';
 import { Provider } from 'react-redux';
 
 
@@ -25,8 +26,9 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
+    <Provider store={store}>
     <NavigationContainer>
-       <Provider store={Store}>
+      
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
@@ -94,23 +96,18 @@ const App = () => {
           component={Qrcode}
           options={{ headerShown: false }}
         /> 
+        <Stack.Screen
+          name="AccountID"
+          component={AccountID}
+          options={{ headerShown: false }}
+        /> 
             
         
       </Stack.Navigator>
-      </Provider>
+   
     </NavigationContainer>
+    </Provider>
   );
 };
 
 export default App;
-// import React from 'react'
-// import { Text, View } from 'react-native'
-
-// const Login =()=>{
-//     return(
-//         <View>
-//             <Text>HI</Text>
-//         </View>
-//     )
-// }
-// export default Login;

@@ -13,12 +13,15 @@ import { useNavigation } from "@react-navigation/native";
 // import { PRODUCT_PROFILEITEMS } from "../Components/profileitemlist";
 
 
+
 const Profile = () => {
 
     const navigation = useNavigation();
-
+    const Login = () => {
+        navigation.navigate("Shop")
+    }
     const QR = () => {
-        navigation.navigate("AccountID")
+        navigation.navigate("Qrcode")
     }
     const renderItem = (item) => {
         return (
@@ -46,14 +49,13 @@ const Profile = () => {
                     <View style={{ flex: 1 }}>
 
                     </View>
-                    <View style={{ flexDirection: 'row', marginTop: 4 }}>
-                        <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'white', marginLeft: 150, marginRight: 75 }}>Profile</Text>
+                    <View style={{ marginTop: 54 }}>
+                        <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'white', marginLeft: 40, marginRight: 75 }}>ACCOUNT ID</Text>
+                        <View>
+                            <Text style={{ fontSize: 12, fontWeight: 'bold', color: 'white', marginLeft: 40, }}>Scan the QR code to connect your Account</Text>
+                        </View>
                         <TouchableOpacity >
                             <Image source={require('../assets/bell.png')} style={{ height: 25, width: 25, marginRight: -14, tintColor: 'black' }} />
-
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button1}>
-                            <Image source={require('../assets/menu.png')} style={{ height: 15, width: 15, tintColor: 'white' }} />
 
                         </TouchableOpacity>
 
@@ -63,54 +65,37 @@ const Profile = () => {
             </ImageBackground>
             <View style={{ height: 1000, backgroundColor: '#e6e9eb', borderRadius: 15, }}>
                 <View style={styles.headercard}>
-                    <View style={{ flexDirection: 'row', marginTop: 30, marginBottom: 5 }}>
-                        <View style={{ flex: 1 }}>
-                            <Image source={require('../assets/blessen.jpg')}
-                                style={styles.logo}>
-                            </Image>
-                        </View>
-                        <View style={{ marginTop: 28, marginRight: 65 }}>
-                            <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>BLESSEN GEORGE</Text>
-                            <Text style={{ fontSize: 16, color: 'grey' }}>ID: 8526974316</Text>
 
-                        </View>
+                    <View>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginLeft: 30, marginTop: 19 }}>Connect your Account ID  </Text>
                     </View>
-                    <View >
-                        <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6' }}>
-                            <Text style={styles.cardtext}>Personal Information</Text>
-                        </View>
-                        <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6', flexDirection: "row" }}>
-                            <Text style={styles.cardtext1}>Account settings</Text>
-                            <Text style={styles.cardtext2}>Domain IES20</Text>
-                        </View>
-                        <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6', flexDirection: "row" }}>
-                            <Text style={styles.cardtext1}>Email</Text>
-                            <Text style={styles.cardtext3}>           George30@gmail.com</Text>
-                        </View>
-                        <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6', flexDirection: "row" }}>
-                            <Text style={styles.cardtext1}>Mobile Number</Text>
-                            <Text style={styles.cardtext2}>+91 8137066525</Text>
-                        </View>
-                        <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6' }}>
-                            <Text style={styles.cardtext}>Account Information</Text>
-                        </View>
-                        <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccd3d6', flexDirection: "row" }}>
-                            <Text style={styles.cardtext1}>location center</Text>
-                            <Text style={styles.cardtext2}>Thrissur, Kearla</Text>
-                        </View>
+                    <View style={styles.headercard2}>
+                        <Image source={require('../assets/QR.png')} style={{ height: 220, width: 220, marginVertical: 15, alignSelf: "center", borderRadius: 15 }} />
+                    </View>
+                    <View>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginTop: 25, alignSelf: "center" }}>ACCOUNT ID : 95629365</Text>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginTop: 5, alignSelf: "center" }}> USER: BLESSEN GEORGE </Text>
 
                         <View style={{ flexDirection: "row" }}>
-                            <Text style={styles.cardtext1}>Expiry Date</Text>
-                            <Text style={styles.cardtext2}>       25th December</Text>
+                            <TouchableOpacity onPress={QR} style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginTop: 25, marginLeft: 48 }}>
+                                <Text> Scan QR Code      </Text></TouchableOpacity>
+                            <Text style={{ marginTop: 25 }}>  |      </Text>
+                            <TouchableOpacity style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginTop: 25, alignSelf: "center" }}>
+                                <Text>  Share QR Code </Text></TouchableOpacity>
                         </View>
                     </View>
-
                 </View>
+                <View style={{ marginVertical: 15 }}>
+                    <TouchableOpacity style={styles.headercard1} onPress={QR}>
+                        <Text style={{ fontSize: 15, alignSelf: "center", justifyContent: "center", alignItems: "center", marginTop: 10, color: "white" }}>QR CODE SCANNER </Text>
 
-                <TouchableOpacity style={styles.headercard1} onPress={QR}>
-                    <Text style={{fontSize:15,alignSelf:"center",justifyContent:"center",alignItems:"center",marginTop:10,color:"white"}}>ACCOUNT ID</Text>
+                    </TouchableOpacity>
 
-                </TouchableOpacity>
+                    <TouchableOpacity style={styles.headercard1} onPress={Login}>
+                        <Text style={{ fontSize: 15, alignSelf: "center", justifyContent: "center", alignItems: "center", marginTop: 10, color: "white" }}>HOME </Text>
+
+                    </TouchableOpacity>
+                </View>
                 {/*                
                <View style={styles.button3}>
                <TouchableOpacity style={styles.button4}>
@@ -140,16 +125,16 @@ const styles = StyleSheet.create({
 
     },
     backgroundImage: {
-        height: 185
+        height: 245
     },
     headercard: {
         borderWidth: 0,
         width: '89%',
-        height: 580,
+        height: 480,
         backgroundColor: 'white',
-        marginTop: -65,
+        marginTop: -55,
         marginHorizontal: 22,
-        borderRadius: 30,
+        borderRadius: 20,
         elevation: 15
 
 
@@ -157,14 +142,27 @@ const styles = StyleSheet.create({
 
     headercard1: {
         borderWidth: 0,
-        width: '59%',
+        width: '79%',
         height: 40,
         backgroundColor: 'black',
-        marginTop: 15,
-        marginHorizontal: 82,
-        borderRadius: 30,
+        marginTop: 5,
+        alignSelf: "center",
+        borderRadius: 5,
         elevation: 15,
 
+
+
+    },
+    headercard2: {
+        borderWidth: 0,
+        width: '72%',
+        height: 250,
+        backgroundColor: '#eeeee4',
+        marginTop: 15,
+
+        borderRadius: 20,
+        elevation: 15,
+        alignSelf: 'center',
 
 
     },

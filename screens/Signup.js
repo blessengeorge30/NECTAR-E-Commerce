@@ -38,8 +38,8 @@ const Profile = () => {
         </TouchableOpacity>
         <Image source={require('../assets/originallogo.png')} style={{ height:60, width: 50,alignSelf:'center'}} />
         {visiblity==true? <View style={{ marginTop:25}}>
-                    <Text style={{ color: 'black', fontSize: 27,marginBottom:12 , marginHorizontal:30 ,fontWeight: "500" }}>Sign up</Text>
-                    <Text style={{ color: 'grey', fontSize: 15, marginHorizontal:25 ,marginBottom:2 }}> Enter your credentials to continue</Text>
+                    <Text style={{ color: 'black', fontSize: 27,marginBottom:12 , marginHorizontal:45 ,fontWeight: "500" }}>Sign up</Text>
+                    <Text style={{ color: 'grey', fontSize: 14, marginHorizontal:40 ,marginBottom:12 }}> Enter your credentials to continue</Text>
                     
                     
 
@@ -50,7 +50,7 @@ const Profile = () => {
             </View>
 
             <View >
-                <View style={{ marginTop: -394 }}>
+                <View style={{ marginTop: -354 }}>
                 <View style={{ marginTop: -184 }}>
                 <Text style={{ color: 'black', fontSize: 15,marginLeft:45}}>Username</Text>
                     <TouchableOpacity onPress={()=>{setvisiablity(!visiblity)}}>

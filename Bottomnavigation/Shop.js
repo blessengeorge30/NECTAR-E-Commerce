@@ -15,24 +15,13 @@ import { PRODUCT_ITEMS } from "../Components/Discoverveggies";
 import { PRODUCT_MEAT } from "../Components/DiscoverMeat";
 import { PRODUCT_GROCERIES } from "../Components/Discovergroceries";
 import { PRODUCT_CARD } from "../Components/Recomended";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../MyProductSlice";
+
 
 
 
 const Profile = () => {
 
-    const cart = useSelector((state) => state.cart.cart);
-    console.log(cart);
-    const dispatch = useDispatch()
 
-    const addItemToCart = (item) => {
-        dispatch(addToCart(item));
-    };
-
-    const removeItemFromCart = (item) => {
-        dispatch(removeFromCart(item));
-    };
 
     const navigation = useNavigation();
 
@@ -43,6 +32,12 @@ const Profile = () => {
     }
     const Signup = () => {
         navigation.navigate("Qrcode")
+    }
+    const cart = () => {
+        navigation.navigate("Cart")
+    }
+    const explore = () => {
+        navigation.navigate("Explore")
     }
     const renderitem = (item) => {
 
@@ -169,7 +164,7 @@ const Profile = () => {
                                     <Image source={require('../assets/qrcode.png')} style={{ height: 20, width: 20 }} />
                                 </TouchableOpacity>
                                 <Image source={require('../assets/originallogo.png')} style={{ height: 40, width: 35, alignSelf: 'center' }} />
-                                <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
+                                <TouchableOpacity onPress={cart} style={styles.button3}>
                                     <Image source={require('../assets/cart.png')} style={{ height: 25, width: 25 }} />
                                 </TouchableOpacity>
                             </View>
@@ -177,11 +172,6 @@ const Profile = () => {
                                 <Image source={require('../assets/Exclude.png')} style={{ height: 16, width: 14, alignSelf: 'center', marginLeft: 30, marginTop: -14 }} />
                                 <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 10, fontWeight: "500" }}>Thrissur, Kerala</Text>
                             </View>
-
-
-
-
-
 
 
 
@@ -196,7 +186,7 @@ const Profile = () => {
                             <Image source={require('../assets/banner.png')} style={{ height: 80, width: 345, marginHorizontal: 25, marginTop: 25, borderRadius: 15 }} />
                             <View style={{ flexDirection: "row" }}>
                                 <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 45, fontWeight: "bold" }}>Exclusive Offers</Text>
-                                <TouchableOpacity style={{ flexDirection: "row" }} >
+                                <TouchableOpacity style={{ flexDirection: "row" }} onPress={explore} >
                                     <Text style={styles.buttontext1}>  see all</Text>
                                     <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 22, borderRadius: 15 }} />
                                 </TouchableOpacity>

@@ -61,7 +61,7 @@ const Homescreen = () => {
 
             <View style={{ flexDirection: 'row' }}>
                 <View style={{ flex: 1 }}>
-                    <ImageBackground source={require('../assets/blurbg.jpeg')}
+                    <ImageBackground  blurRadius={35} source={require('../assets/blurbg.jpeg')}
                         style={styles.backgroundImage}>
                             <View style={{ marginHorizontal:15}}>
                         <View style={{ marginTop: 75, flexDirection: 'row' }}>
@@ -73,7 +73,7 @@ const Homescreen = () => {
 
                         <View style={{ marginTop: 15, flexDirection: 'row' }}>
 
-                            <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 120, fontWeight: "500" }}>Find Products</Text>
+                            <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 110, fontWeight: "500" }}>Find Products</Text>
 
 
                         </View>
@@ -88,7 +88,7 @@ const Homescreen = () => {
 
 
 
-                        <View style={{ marginVertical: 25, marginHorizontal: 0 }}>
+                        <View style={{ marginVertical: 25, marginLeft:-3 }}>
                             <FlatList
 
                                 data={PRODUCT_PRODUCTS}
