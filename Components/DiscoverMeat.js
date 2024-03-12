@@ -6,6 +6,7 @@ export const PRODUCT_MEAT =[
         name: 'Beef Bone',
         pricetag: "7 pcs, price",
         price: 5.99,
+        qty:0,
         productdetails:"Beef bone, a nutrient-rich culinary ingredient, adds depth of flavor and nutritional benefits to broths, soups, and stews, while also providing collagen and minerals for joint and bone health."
         
     },
@@ -16,6 +17,7 @@ export const PRODUCT_MEAT =[
         name: 'Fresh Chicken',
         pricetag: "250 gm , price in g",
         price: 1.99,
+        qty:0,
         productdetails:"Fresh chicken, a versatile and lean protein source, is a culinary staple known for its juicy texture, adaptable flavor profile, and suitability for various cooking methods."
     },
 

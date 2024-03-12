@@ -1,7 +1,8 @@
-import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from '../action/favoriteaction';
+import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES ,  ADD_TO_CART, REMOVE_FROM_CART} from '../action/favoriteaction';
 
 const initialState = {
   favorites: [],
+  cart: [],
 };
 
 const favoriteReducer = (state = initialState, action) => {
@@ -16,6 +17,18 @@ const favoriteReducer = (state = initialState, action) => {
       return {
         ...state,
         favorites: state.favorites.filter(item => item.id !== action.payload),
+      };
+
+    case ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter(item => item.id !== action.payload),
       };
 
     default:

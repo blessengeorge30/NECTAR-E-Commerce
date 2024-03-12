@@ -4,6 +4,7 @@ export const LUNCH_ITEMS = [
         Image: require('../assets/fivestar.png'),
         name: 'Lunch Beef',
         name1: 'Burger & Chips',
+        qty:0,
         rating: "4.9(479 Calories) "
     },
     {
@@ -11,6 +12,7 @@ export const LUNCH_ITEMS = [
         Image: require('../assets/fivestar.png'),
         name: ' Margerita',
         name1: ' Italian Pizza ',
+        qty:0,
         rating: "4.8(872 Calories) "
     },
 
@@ -19,6 +21,7 @@ export const LUNCH_ITEMS = [
         Image: require('../assets/fivestar.png'),
         name: ' BBQ Grilled ',
         name1: ' Chicken Smoked',
+        qty:0,
         rating: "4.2(250 Calories) "
     },
     // {

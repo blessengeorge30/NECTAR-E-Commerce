@@ -5,12 +5,14 @@ import { useNavigation } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import { addToFavorites } from '../Redux/action/favoriteaction';
 import { removeFromFavorites } from '../Redux/action/favoriteaction';
+import { addToCart , removeFromCart } from '../Redux/action/favoriteaction';
+
 
 
 import { foodItems } from '../constants';
 
 
-const FoodDetailsScreen = ({ addToFavorites, removeFromFavorites, route }) => {
+const FoodDetailsScreen = ({ addToFavorites, removeFromFavorites, addToCart, removeFromCart, route }) => {
 
         const handleAddToFavorites = (itemToAdd) => {
             setPressed(!isPressed);
@@ -19,9 +21,16 @@ const FoodDetailsScreen = ({ addToFavorites, removeFromFavorites, route }) => {
           addToFavorites(itemToAdd);
           console.log('hi');
         };
+        const handleAddToCart = (item) => {
+         
+          // You can replace this with the actual item you want to add to favorites
+        //   const itemToAdd = { id: 1, name: 'Example Item' };
+          addToCart(item);
+          console.log('hi');
+        };
       
 
-    let currentPrice = 4.99;
+  
     const { item } = route.params;
 
 
@@ -158,8 +167,8 @@ const FoodDetailsScreen = ({ addToFavorites, removeFromFavorites, route }) => {
                         ${item.price * Value}
                     </Text>
                     <View >
-                        <TouchableOpacity style={{ backgroundColor: '#00c559', borderRadius: 10, marginHorizontal: 15, marginTop: 10, height: 50, width: 200, alignItems: 'center', justifyContent: 'center' }}>
-                            <Text style={{ color: 'white', fontSize: 18, fontWeight: '500' }}>Add to Cart</Text>
+                        <TouchableOpacity  onPress={() => handleAddToCart(item)} style={{ backgroundColor: '#00c559', borderRadius: 10, marginHorizontal: 15, marginTop: 10, height: 50, width: 200, alignItems: 'center', justifyContent: 'center' }}>
+                            <Text style={{ color: 'white', fontSize: 18, fontWeight: '500' }} >Add to Cart</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -261,5 +270,8 @@ const styles = StyleSheet.create({
 });
 const mapDispatchToProps = (dispatch) => ({
     addToFavorites: (item) => dispatch(addToFavorites(item)),
+    addToCart: (item) => dispatch(addToCart(item)),
   });
+  
   export default connect(null, mapDispatchToProps)(FoodDetailsScreen);
+  

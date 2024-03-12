@@ -5,6 +5,7 @@ export const PRODUCT_PRODUCTS =[
         image1:require('../assets/add.png'),
         name: 'Beverages   ',
         pricetag: "1 kg , price in g",
+        qty:0,
         price: "$ 12.99"
     },
     {
@@ -12,6 +13,7 @@ export const PRODUCT_PRODUCTS =[
         image1:require('../assets/add.png'),
         name: 'Fresh Fruits & Veggies',
         pricetag: "1 kg, price",
+        qty:0,
         price: "$ 20.99"
     },
     {
@@ -19,6 +21,7 @@ export const PRODUCT_PRODUCTS =[
         image1:require('../assets/add.png'),
         name: 'Cooking Oil &      Ghee items',
         pricetag: "1 kg , price g",
+        qty:0,
         price: "$ 4.99"
     },
     {
@@ -26,6 +29,7 @@ export const PRODUCT_PRODUCTS =[
         image1:require('../assets/add.png'),
         name: 'Meat items &          sea foods',
         pricetag: "1 kg , price in g",
+        qty:0,
         price: "$ 12.99"
     },
     {
@@ -33,6 +37,7 @@ export const PRODUCT_PRODUCTS =[
         image1:require('../assets/add.png'),
         name: 'Bakery & Snacks  ',
         pricetag: "1 kg , price in g",
+        qty:0,
         price: "$ 12.99"
     },
     {
@@ -40,6 +45,7 @@ export const PRODUCT_PRODUCTS =[
         image1:require('../assets/add.png'),
         name: 'Dairy Products & Cheese ',
         pricetag: "1 kg , price in g",
+        qty:0,
         price: "$ 12.99"
     },
    
