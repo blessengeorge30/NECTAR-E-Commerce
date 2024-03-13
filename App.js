@@ -17,6 +17,7 @@ import Location from './screens/Location';
 import Qrcode from './screens/Qrcode';
 import AccountID from './screens/AccountID';
 import Successpage from './screens/Successpage';
+import CartAdded from './screens/CartAdded';
 import store from './Redux/store';
 import { Provider } from 'react-redux';
 
@@ -106,6 +107,11 @@ const App = () => {
          <Stack.Screen
           name="Successpage"
           component={Successpage}
+          options={{ headerShown: false }}
+        /> 
+          <Stack.Screen
+          name="CartAdded"
+          component={CartAdded}
           options={{ headerShown: false }}
         /> 
             

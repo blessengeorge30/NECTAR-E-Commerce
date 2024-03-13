@@ -2,10 +2,16 @@ import React from 'react';
 import { Text, View, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
+import { useNavigation } from "@react-navigation/native";
 
 const FavoritesScreen = () => {
     const favorites = useSelector(state => state.favorites.favorites);
     console.log('Favorites:', favorites);
+
+    const navigation = useNavigation();
+    const SUCCESS= () => {
+        navigation.navigate("CartAdded")
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -15,7 +21,7 @@ const FavoritesScreen = () => {
             <View style={styles.scrollContainer}>
                 <ScrollView vertical={true} contentContainerStyle={styles.scrollContent}>
                     {favorites?.map(item => (
-                        <TouchableOpacity style={{ width: '88%' }}>
+                        <TouchableOpacity style={{ width: '90%',marginLeft:16 }}>
                             <View key={item.id} style={styles.itemContainer}>
                                 <Image style={{ height: 80, width: 110, marginLeft: 0, marginTop: 15 }} source={item.image} />
                                 <Text style={styles.itemName}>{item.name}</Text>
@@ -28,6 +34,11 @@ const FavoritesScreen = () => {
                             </View>
                         </TouchableOpacity>
                     ))}
+                      <View>
+                                            <TouchableOpacity style={styles.buttonView21} onPress={SUCCESS}>
+                                                <Text style={styles.buttontext}> Add to Cart </Text>
+                                            </TouchableOpacity>
+                                        </View>
                 </ScrollView>
             </View>
         </SafeAreaView>
@@ -99,6 +110,31 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         elevation: 15,
 
+
+
+    },
+    buttonView21: {
+        width: '188%',
+        height: 55,
+        backgroundColor: '#00c559',
+        marginTop: 35,
+        borderRadius: 10,
+        alignSelf: "center",
+        alignItems: 'center',
+        justifyContent: "center",
+        textAlignVertical: 'center',
+        zIndex: 2,
+
+
+
+
+    },
+    buttontext: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16,
+        marginHorizontal:120
+      
 
 
     },
