@@ -21,31 +21,41 @@ const Onboard = () => {
     const Homescreen = () => {
         navigation.navigate("Signin")
     }
+    const back = () => {
+        navigation.navigate("Cart")
+    }
 
     return (
         <View style={styles.container}>
-            <ImageBackground blurRadius={12} source={require('../assets/Onboardbg.png')}
+            <ImageBackground blurRadius={8} source={require('../assets/blurbg.jpeg')}
                 style={styles.backgroundImage}>
-                    <View style={{marginTop:450,marginBottom:5,marginHorizontal:180}}>
-                        <Image source={require('../assets/mainlogo.png')} style={{ height:60, width: 50}} />
+                    <View style={{marginTop:350,marginBottom:5,marginHorizontal:180}}>
+                        <Image source={require('../assets/originallogo.png')} style={{ height:60, width: 50}} />
                     </View>
 
                 <View style={{ marginTop: 20, alignItems: 'center', alignSelf: 'center' }}>
                     <View >
-                        <Text style={{ color: 'white', fontSize: 42,fontWeight: 'bold' , marginHorizontal: 10, marginBottom: -5 }}>Welcome  </Text>
-                        <Text style={{ color: 'white', fontSize: 42, fontWeight: 'bold' ,marginLeft: -5, marginBottom: 15 }}>to our store </Text>
+                        <Text style={{ color: 'black', fontSize: 30,fontWeight: 'bold', alignSelf:"center",marginBottom: -5 }}>Your Order </Text>
+                        <Text style={{ color: 'black', fontSize: 28, fontWeight: 'bold' ,marginLeft: -5, marginBottom: 15 }}>has Successfully placed </Text>
                        
 
                     </View>
 
                     <View >
-                        <Text style={{ color: 'white', fontSize: 18, alignSelf: 'center', fontWeight: "300" }}>Get your groceries in as fast as one hour</Text>
+                        <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', fontWeight: "300" }}>Your items has been placed and is on 
+                        it’s way</Text>
+<Text style={{ color: 'black', fontSize: 15, alignSelf: 'center', fontWeight: "300" }}> to being processed</Text>
                     </View>
                 </View>
 
                 <View>
                     <TouchableOpacity style={styles.buttonView} onPress={Homescreen}>
-                        <Text style={styles.buttontext}> Get Started </Text>
+                        <Text style={styles.buttontext}> Track Order</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <TouchableOpacity style={styles.buttonView88} onPress={back}>
+                        <Text style={styles.buttontext}> Back to Home</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -134,8 +144,24 @@ const styles = StyleSheet.create({
         width: '88%',
         height: 65,
         backgroundColor: '#00c559',
-        marginTop: 25,
-        borderRadius: 5,
+        marginTop: 55,
+        borderRadius: 15,
+        alignSelf: "center",
+        alignItems: 'center',
+        justifyContent: "center",
+        textAlignVertical: 'center',
+        zIndex: 2,
+
+
+
+
+    },
+    buttonView88: {
+        width: '88%',
+        height: 65,
+        backgroundColor: '#00c559',
+        marginTop: 15,
+        borderRadius: 15,
         alignSelf: "center",
         alignItems: 'center',
         justifyContent: "center",

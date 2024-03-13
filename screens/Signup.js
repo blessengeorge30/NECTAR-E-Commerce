@@ -79,13 +79,13 @@ const Profile = () => {
                         placeholderTextColor='white'
                         maxLength={10}>
                     </TextInput>
-                    <TouchableOpacity style={{flexDirection: 'row',marginLeft:40,marginTop:15}}>
+                    <TouchableOpacity style={{flexDirection: 'row',marginLeft:35,marginTop:15}}>
                     <Text style={styles.buttontext2}> By continuing you agree to our </Text>
                         <Text style={styles.buttontext1}>Terms of Service </Text>
                       
 
                     </TouchableOpacity>
-                    <View style={{flexDirection: 'row',marginLeft:40}}>
+                    <View style={{flexDirection: 'row',marginLeft:35}}>
                         <Text style={styles.buttontext2}> and </Text>
                         <Text style={styles.buttontext1}>Privacy Policy. </Text>
                         </View>
@@ -255,18 +255,11 @@ const styles = StyleSheet.create({
         fontSize: 15,
        alignItems:'center',
        alignSelf: "center",
-
-
-
     },
     buttontext2: {
         color: 'black',
         fontWeight: '400',
         fontSize: 14,
-     
-
-
-
     },
 
     txtView: {

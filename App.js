@@ -16,8 +16,10 @@ import Beverages from './screens/Beverages';
 import Location from './screens/Location';
 import Qrcode from './screens/Qrcode';
 import AccountID from './screens/AccountID';
+import Successpage from './screens/Successpage';
 import store from './Redux/store';
 import { Provider } from 'react-redux';
+
 
 
 
@@ -99,6 +101,11 @@ const App = () => {
         <Stack.Screen
           name="AccountID"
           component={AccountID}
+          options={{ headerShown: false }}
+        /> 
+         <Stack.Screen
+          name="Successpage"
+          component={Successpage}
           options={{ headerShown: false }}
         /> 
             

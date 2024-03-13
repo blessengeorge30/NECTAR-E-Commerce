@@ -7,9 +7,7 @@ import { addToFavorites } from '../Redux/action/favoriteaction';
 import { removeFromFavorites } from '../Redux/action/favoriteaction';
 import { addToCart , removeFromCart } from '../Redux/action/favoriteaction';
 
-
-
-import { foodItems } from '../constants';
+// import { foodItems } from '../constants';
 
 
 const FoodDetailsScreen = ({ addToFavorites, removeFromFavorites, addToCart, removeFromCart, route }) => {
