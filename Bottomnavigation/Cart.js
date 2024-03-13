@@ -242,11 +242,12 @@ const styles = StyleSheet.create({
 
     },
     itemContainer: {
-        borderWidth: 2,
+        borderWidth: 0.5,
         borderRadius: 12,
-        width: '100%',
+        width: '97%',
         height: 180,
         marginVertical: 10,
+        marginLeft:6,
         backgroundColor: 'white'
     },
     image: {
