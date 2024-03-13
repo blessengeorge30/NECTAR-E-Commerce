@@ -29,9 +29,9 @@ const Onboard = () => {
         <View style={styles.container}>
             <ImageBackground blurRadius={8} source={require('../assets/blurbg.jpeg')}
                 style={styles.backgroundImage}>
-                    <View style={{marginTop:340,marginBottom:25,marginHorizontal:180}}>
-                        <Image source={require('../assets/originallogo.png')} style={{ height:60, width: 50}} />
-                    </View>
+                <View style={{marginTop:250,marginBottom:15,marginHorizontal:100}}>
+                    <Image source={require('../assets/success.png')} style={{ height:160, width: 180}} />
+                </View>
 
                 <View style={{ marginTop: 20, alignItems: 'center', alignSelf: 'center' }}>
                     <View >
