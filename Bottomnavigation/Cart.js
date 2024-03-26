@@ -32,20 +32,25 @@ const cartScreen = () => {
 
     const snapPoints = ["25%", "48%", "75%"];
 
-    function handlePresentModal() {
+    const handlePresentModal = () => {
         bottomSheetModalRef.current?.present();
         setTimeout(() => {
-            setIsOpen(true);
+          setIsOpen(true);
+          setStatusBarStyle('dark-content'); // Set status bar to gray when bottom sheet is open
         }, 100);
-    }
+      };
+      
 
     const navigation = useNavigation();
     const HOME = () => {
         navigation.navigate("Shop")
     }
-    const SUCCESS= () => {
+    const SUCCESS = () => {
         navigation.navigate("Successpage")
     }
+
+    const [statusBarStyle, setStatusBarStyle] = useState('light-content'); // Assuming initial style is light
+
 
     const [Value, setValue] = useState(1);
 
@@ -102,12 +107,12 @@ const cartScreen = () => {
                                         </View>
                                     </TouchableOpacity>
                                 ))}
-                                
+
                                 <View>
-                                            <TouchableOpacity style={styles.buttonView21} onPress={handlePresentModal}>
-                                                <Text style={styles.buttontext}> CHECKOUT </Text>
-                                            </TouchableOpacity>
-                                        </View>
+                                    <TouchableOpacity style={styles.buttonView21} onPress={handlePresentModal}>
+                                        <Text style={styles.buttontext}> CHECKOUT </Text>
+                                    </TouchableOpacity>
+                                </View>
 
                                 <StatusBar style="auto" />
                                 <BottomSheetModal
@@ -159,7 +164,7 @@ const cartScreen = () => {
                                                 marginVertical: 35,
                                             }}
                                         />
-                                       
+
 
                                         <View style={{ flexDirection: "row" }}>
                                             <Text style={[styles.title, { width: "100%" }]}>TOTAL COST </Text>
@@ -247,7 +252,7 @@ const styles = StyleSheet.create({
         width: '97%',
         height: 180,
         marginVertical: 10,
-        marginLeft:6,
+        marginLeft: 6,
         backgroundColor: 'white'
     },
     image: {
@@ -406,7 +411,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         fontSize: 14,
-      
+
 
 
     },

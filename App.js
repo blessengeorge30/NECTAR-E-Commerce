@@ -74,11 +74,11 @@ const App = () => {
           options={{ headerShown: false }}
         /> 
          
-            <Stack.Screen
+            {/* <Stack.Screen
           name="Homescreen"
           component={Homescreen}
           options={{ headerShown: false }}
-        /> 
+        />  */}
             <Stack.Screen
           name="FoodDetails"
           component={FoodDetails}
