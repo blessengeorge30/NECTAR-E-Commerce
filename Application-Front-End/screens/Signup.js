@@ -267,8 +267,9 @@ const styles = StyleSheet.create({
         },
         errorText: {
             color: 'red',
-            marginLeft: 45,
-            marginTop: 5
+            // marginLeft: 5,
+            marginTop: 4,
+            marginBottom:8
         },
         showPasswordButton: {
             position: 'absolute',
