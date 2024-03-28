@@ -11,14 +11,15 @@ mongoose.connect(mongoUrl).then(() =>{
     console.log(e);
 }); 
 
-
+require("./UserDetails")
+const User=mongoose.model ("UserInfo");
 
 app.get("/", (req, res) => {
     res.send({status:"Started"})
 });
 
 app.post('/register',async(req,res)=>{
-    const data = req.body;
+    const {name,email,password} = req.body;
 })
 
  app.listen(5001,() => {
