@@ -17,7 +17,9 @@ app.get("/", (req, res) => {
     res.send({status:"Started"})
 });
 
-app.post
+app.post('/register',async(req,res)=>{
+    const data = req.body;
+})
 
  app.listen(5001,() => {
     console.log("node.js server started.")
