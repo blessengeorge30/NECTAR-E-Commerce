@@ -21,6 +21,11 @@ app.get("/", (req, res) => {
 app.post('/register',async(req,res)=>{
     const {name,email,password} = req.body;
    
+    const oldUser = await User.findOne({ email: email });
+
+    if (oldUser) {
+      return res.send({ data: "User already exists!!" });
+    }
    
     try {
         await User.create({
