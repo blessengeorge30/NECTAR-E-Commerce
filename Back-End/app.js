@@ -20,7 +20,21 @@ app.get("/", (req, res) => {
 
 app.post('/register',async(req,res)=>{
     const {name,email,password} = req.body;
-})
+   
+   
+    try {
+        await User.create({
+          name: name,
+          email: email,
+          mobile,
+          password: encryptedPassword,
+          userType,
+        });
+        res.send({ status: "ok", data: "User Created" });
+      } catch (error) {
+        res.send({ status: "error", data: error });
+      }
+});
 
  app.listen(5001,() => {
     console.log("node.js server started.")
