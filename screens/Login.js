@@ -37,9 +37,9 @@ const Profile = () => {
                         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
                             <Image source={require('../assets/back.png')} style={{ height: 20, width: 20, marginVertical: 25 }} />
                         </TouchableOpacity>
-                        <View style={{ marginTop: 10 }}>
+                        <View style={{ marginTop: 60 }}>
                             <Image source={require('../assets/originallogo.png')} style={{ height: 60, width: 50, alignSelf: 'center' }} />
-                            {visiblity == true ? <View style={{ marginTop: 50 }}>
+                            {visiblity == true ? <View style={{ marginTop: 20 }}>
                                 <Text style={{ color: 'black', fontSize: 27, marginBottom: 8, alignSelf: 'center', fontWeight: "500" }}>Login</Text>
                                 <Text style={{ color: 'grey', fontSize: 13, alignSelf: 'center', marginBottom: 2 }}> Enter your emails and password</Text>
 
@@ -50,7 +50,7 @@ const Profile = () => {
             </View>
 
             <View >
-                <View style={{ marginTop: -380 }}>
+                <View style={{ marginTop: -300 }}>
                     <View style={{ marginTop: -140 }}>
                         <Text style={{ color: 'black', fontSize: 15, marginLeft: 55 }}>Email</Text>
                         <TouchableOpacity onPress={() => { setvisiablity(!visiblity) }}>
@@ -84,7 +84,7 @@ const Profile = () => {
 
 
                     </View>
-                    <View style={{ marginTop: 25, alignSelf: 'center' }}>
+                    <View style={{ marginTop: 25, alignSelf: 'center', }}>
                         <TouchableOpacity style={{ flexDirection: 'row' }} onPress={Signup} >
 
                             <Text style={styles.buttontext2}> Don't have an account?</Text>

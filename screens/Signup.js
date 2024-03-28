@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     Text,
     View,
@@ -7,7 +7,10 @@ import {
     TextInput,
     TouchableOpacity,
     ImageBackground,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    Platform,
+    ScrollView,
+    Keyboard
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -31,6 +34,27 @@ const Profile = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [userType, setUserType] = useState('');
     const [secretText, setSecretText] = useState('');
+    const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+    useEffect(() => {
+        const keyboardDidShowListener = Keyboard.addListener(
+            'keyboardDidShow',
+            () => {
+                setKeyboardVisible(true);
+            }
+        );
+        const keyboardDidHideListener = Keyboard.addListener(
+            'keyboardDidHide',
+            () => {
+                setKeyboardVisible(false);
+            }
+        );
+
+        return () => {
+            keyboardDidShowListener.remove();
+            keyboardDidHideListener.remove();
+        };
+    }, []);
 
     function handleName(text) {
         setName(text);
@@ -41,38 +65,42 @@ const Profile = () => {
         setEmail(text);
         setEmailVerify(/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(text));
     }
+
     function handlePassword(e) {
         const passwordVar = e.nativeEvent.text;
         setPassword(passwordVar);
         setPasswordVerify(false);
         if (/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(passwordVar)) {
-          setPassword(passwordVar);
-          setPasswordVerify(true);
+            setPassword(passwordVar);
+            setPasswordVerify(true);
         }
-      }
+    }
+
     return (
-        <KeyboardAvoidingView behavior="padding" style={styles.container}>
-            <View style={{ flexDirection: 'row' }}>
-                <View style={{ flex: 1 }}>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={styles.container}
+        >
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                {!isKeyboardVisible && (
                     <ImageBackground source={require('../assets/blurbg.jpeg')} style={styles.backgroundImage}>
                         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
                             <Image source={require('../assets/back.png')} style={{ height: 20, width: 20 }} />
                         </TouchableOpacity>
-                        <Image source={require('../assets/originallogo.png')} style={{ height: 60, width: 50, alignSelf: 'center' }} />
-                        <View style={{ marginTop: 25 }}>
-                            <Text style={{ color: 'black', fontSize: 27, marginBottom: 12, marginHorizontal: 45, fontWeight: "500" }}>Sign up</Text>
-                            <Text style={{ color: 'grey', fontSize: 14, marginHorizontal: 40, marginBottom: 12 }}> Enter your credentials to continue</Text>
+                        <Image source={require('../assets/originallogo.png')} style={styles.logo} />
+                        <View style={{ marginTop: 18 }}>
+                            <Text style={styles.heading}>Sign up</Text>
+                            <Text style={styles.subHeading}>Enter your credentials to continue</Text>
                         </View>
                     </ImageBackground>
-                </View>
-            </View>
+                )}
+                <View style={styles.formContainer}>
 
-            <View style={{ marginTop: -354 }}>
-                <View style={{ marginTop: -184 }}>
-                    <Text style={{ color: 'black', fontSize: 15, marginLeft: 45 }}>Username</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Text style={styles.label}>Username</Text>
+                    <View style={styles.inputContainer}>
                         <TextInput
-                            style={[styles.inputView1, { marginLeft: 45, color: 'black' }]}
+                            style={styles.input}
+                            placeholder="Enter your username"
                             placeholderTextColor="black"
                             maxLength={10}
                             onChangeText={handleName}
@@ -80,250 +108,225 @@ const Profile = () => {
                         {name.length > 0 && (nameVerify ? (
                             <Image
                                 source={require('../assets/checkmark.png')}
-                                style={{ height: 26, width: 26, position: 'absolute', right: 50 }}
+                                style={styles.icon}
                             />
                         ) : (
                             <Image
                                 source={require('../assets/deleteicon.png')}
-                                style={{ height: 20, width: 20, position: 'absolute', right: 50 }}
+                                style={styles.icon}
                             />
                         ))}
                     </View>
                     {name.length > 0 && !nameVerify && (
-                        <Text style={{ marginLeft: 45, marginTop: 5, color: 'red' }}>Name should be more than 1 character.</Text>
+                        <Text style={styles.errorText}>Name should be more than 1 character.</Text>
                     )}
 
-                    <View style={{ marginTop: 10 }}>
-                        <Text style={{ color: 'black', fontSize: 15, marginLeft: 50 }}>Email</Text>
-                        <View style={[styles.inputView1, { flexDirection: 'row', alignItems: 'center' }]}>
-                            <TextInput
-                                style={{ flex: 1, color: 'black' }}
-                                placeholderTextColor='black'
-                                maxLength={50}
-                                onChangeText={handleEmail}
+                    <Text style={styles.label}>Email</Text>
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Enter your email"
+                            placeholderTextColor="black"
+                            maxLength={50}
+                            onChangeText={handleEmail}
+                        />
+                        {email.length > 0 && (emailVerify ? (
+                            <Image
+                                source={require('../assets/checkmark.png')}
+                                style={styles.icon}
                             />
-                            {email.length > 0 && (emailVerify ? (
-                                <Image
-                                    source={require('../assets/checkmark.png')}
-                                    style={{ height: 26, width: 26, marginRight: 2 }}
-                                />
-                            ) : (
-                                <Image
-                                    source={require('../assets/deleteicon.png')}
-                                    style={{ height: 20, width: 20, marginRight: 2 }}
-                                />
-                            ))}
-                        </View>
+                        ) : (
+                            <Image
+                                source={require('../assets/deleteicon.png')}
+                                style={styles.icon}
+                            />
+                        ))}
                     </View>
                     {email.length > 0 && !emailVerify && (
-                        <Text style={{ marginLeft: 50, marginTop: 6, color: 'red' }}>Enter a valid email address.</Text>
+                        <Text style={styles.errorText}>Enter a valid email address.</Text>
                     )}
 
-                    <View style={{ marginTop: 5 }}>
-                        <Text style={{ color: 'black', fontSize: 15, marginLeft: 50, marginTop: 10 }}>Password</Text>
-                        <TextInput style={[styles.inputView1, { color: 'black' }]}
-
-                            placeholderTextColor='white'
-                            maxLength={10}>
-                        </TextInput>
-                        <TouchableOpacity style={{ flexDirection: 'row', marginLeft: 35, marginTop: 15 }}>
-                            <Text style={styles.buttontext2}> By continuing you agree to our </Text>
-                            <Text style={styles.buttontext1}>Terms of Service </Text>
-
-
-                        </TouchableOpacity>
-                        <View style={{ flexDirection: 'row', marginLeft: 35 }}>
-                            <Text style={styles.buttontext2}>and</Text>
-                            <Text style={styles.buttontext1}>Privacy Policy</Text>
-                        </View>
-
-                    </View>
-                    <View>
-                        <TouchableOpacity style={styles.buttonView}
-                            onPress={Register} >
-                            <Text style={styles.buttontext}> Signup </Text>
-                        </TouchableOpacity>
-
-
-                    </View>
-                    <View style={{ marginTop: 18, alignSelf: 'center' }}>
-                        <TouchableOpacity style={{ flexDirection: 'row' }} onPress={Signup} >
-
-                            <Text style={styles.buttontext2}> Already have an account?</Text>
-                            <Text style={styles.buttontext1}> Sign in</Text>
+                    <Text style={styles.label}>Password</Text>
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Enter your password"
+                            placeholderTextColor="white"
+                            maxLength={10}
+                            secureTextEntry={!showPassword}
+                            onChange={handlePassword}
+                        />
+                        <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={styles.showPasswordButton}>
+                            <Text style={styles.showPasswordText}>{showPassword ? 'Hide' : 'Show'}</Text>
                         </TouchableOpacity>
                     </View>
+                </View>
+                
+                <TouchableOpacity style={styles.termsLink}>
+                    <Text style={styles.termsText}>By continuing you agree to our <Text style={styles.termsHighlight}>Terms of Service</Text></Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.termsLink}>
+                    <Text style={styles.termsText}>and <Text style={styles.termsHighlight}>Privacy Policy</Text></Text>
+                </TouchableOpacity>
 
+                <TouchableOpacity style={styles.signupButton} onPress={Register}>
+                    <Text style={styles.signupButtonText}>Sign up</Text>
+                </TouchableOpacity>
 
-
-
+                <View style={styles.signInContainer}>
+                    <Text style={styles.signInText}>Already have an account? </Text>
+                    <TouchableOpacity onPress={Signup}>
+                        <Text style={styles.signInLink}>Sign in</Text>
+                    </TouchableOpacity>
                 </View>
 
-
-            </View>
+            </ScrollView>
         </KeyboardAvoidingView>
-    )
-}
+    );
+};
+
 const styles = StyleSheet.create({
-    container: {
-        height: 100,
-        backgroundColor: 'white',
-        flex: 1
-    },
-    backgroundImage: {
-        height: '100%',
-        // width: '100%',
 
-
-    },
-    button3: {
-        height: 40,
-        width: 50,
-        borderColor: 'white',
-        elevation: 15,
-        borderWidth: 1,
-        backgroundColor: 'white',
-        paddingVertical: 12,
-        borderRadius: 8,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 68,
-        marginBottom: 25,
-        marginHorizontal: 25
-
-    },
-    logo: {
-
-        width: 150,
-        height: 80,
-        marginTop: 60,
-        marginBottom: 55,
-        resizeMode: "contain",
-        alignSelf: "center",
-        tintColor: 'black'
-
-    },
-    logo1: {
-        height: 200,
-        width: 200,
-        marginBottom: 10,
-        resizeMode: "contain",
-        alignSelf: "center"
-    },
-    logo2: {
-
-        width: 15,
-        height: 15,
-        resizeMode: "contain",
-        alignSelf: "center",
-        tintColor: "green"
-
-    },
-    inputView: {
-        width: '70%',
-        height: 65,
-        borderWidth: 1,
-        borderRadius: 5,
-        borderColor: '#012143',
-        backgroundColor: '#011122',
-        marginTop: 25,
-        paddingLeft: 25,
-        marginLeft: 10
-
-
-    },
-    inputView1: {
-        width: '75%',
-        height: 60,
-        borderBottomWidth: 0.5,
-        // marginLeft: 45 ,
-        borderColor: '#01326f',
-
-        marginTop: -5,
-        marginHorizontal: 15,
-        alignSelf: "center"
-
-
-
-    },
-
-    cardtext: {
-        marginTop: 12,
-        marginLeft: 24,
-        color: 'white',
-        fontSize: 18,
-        marginRight: 110
-    },
-
-    buttonView: {
-        width: '88%',
-        height: 65,
-        backgroundColor: '#00c559',
-        marginTop: 25,
-        borderRadius: 5,
-        alignSelf: "center",
-        alignItems: 'center',
+        container: {
+            flex: 1,
+            backgroundColor: 'white'
+        },
+        backgroundImage: {
+            flex: 1,
+        resizeMode: "cover",
         justifyContent: "center",
-        textAlignVertical: 'center',
+        width: '100%', // Ensure the background image covers the entire width
+        height: '100%' // Ensure the background image covers the entire height
+        },
+        button3: {
+            height: 40,
+            width: 50,
+            borderColor: 'white',
+            elevation: 15,
+            borderWidth: 1,
+            backgroundColor: 'white',
+            paddingVertical: 12,
+            borderRadius: 8,
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            top: 80,
+            left: 20,
+            zIndex: 1
+        },
+        logo: {
+            width: 180,
+            height: 60,
+            marginLeft:15,
+            alignSelf: 'center',
+            marginTop: 180,
+            resizeMode: "contain"
+        },
+        
+        heading: {
+            color: 'black',
+            fontSize: 27,
+            marginBottom: 12,
+            marginHorizontal: 45,
+            fontWeight: "500",
+            textAlign: 'center'
+        },
+        subHeading: {
+            color: 'grey',
+            fontSize: 14,
+            marginHorizontal: 40,
+            marginBottom: 12,
+            textAlign: 'center'
+        },
+        formContainer: {
+            paddingHorizontal: 20,
+            marginTop: '20%',
+            paddingBottom: 20, // Added paddingBottom to accommodate for the button
+        },
+        
+        label: {
+            color: 'black',
+            fontSize: 15,
+            marginBottom: 5
+        },
+        inputContainer: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            borderBottomWidth: 0.5,
+            borderColor: '#01326f',
+            marginBottom: 10 // Increased marginBottom for better spacing between inputs
+        },
+        input: {
+            flex: 1,
+            color: 'black',
+            height: 40
+        },
+        icon: {
+            width: 20,
+            height: 20
+        },
+        errorText: {
+            color: 'red',
+            marginLeft: 45,
+            marginTop: 5
+        },
+        showPasswordButton: {
+            position: 'absolute',
+            right: 10
+        },
+        showPasswordText: {
+            color: 'black',
+            fontSize: 14
+        },
+        termsLink: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: 10,
+            paddingHorizontal: 20
+        },
+        termsText: {
+            color: 'black',
+            fontSize: 14
+        },
+        termsHighlight: {
+            color: 'green',
+            fontWeight: 'bold'
+        },
+        signupButton: {
+            backgroundColor: '#00c559',
+            borderRadius: 5,
+            paddingVertical: 15,
+            marginHorizontal: 25,
+            alignItems: 'center',
+            marginTop: 20
+        },
+        signupButtonText: {
+            color: 'white',
+            fontWeight: 'bold',
+            fontSize: 18
+        },
+        signInContainer: {
+            flexDirection: 'row',
+            justifyContent: 'center',
+            marginTop: 20
+        },
+        signInText: {
+            color: 'black',
+            fontSize: 14
+        },
+        signInLink: {
+            color: 'green',
+            fontWeight: 'bold',
+            fontSize: 14,
+            paddingBottom:85
+        },
+    });
+    
 
 
 
 
-    },
-    buttonView1: {
-        width: '80%',
-        height: 35,
-        backgroundColor: '#ebecf0',
-        marginTop: 22,
-        borderRadius: 8,
-        alignSelf: "center",
-        alignItems: 'center',
-        textAlignVertical: 'center',
-        paddingHorizontal: 40,
-        flexDirection: "row",
 
 
-    },
-
-
-    buttontext: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 18,
-        alignSelf: 'center'
-
-
-    },
-    buttontext1: {
-        color: 'green',
-        fontWeight: 'bold',
-        height: 25,
-        marginLeft: 2,
-        fontSize: 15,
-        alignItems: 'center',
-        alignSelf: "center",
-    },
-    buttontext2: {
-        color: 'black',
-        fontWeight: '400',
-        fontSize: 14,
-    },
-
-    txtView: {
-        color: 'green',
-        fontWeight: 'bold',
-        fontSize: 18,
-        alignSelf: 'center',
-
-
-
-    }
-
-
-})
 export default Profile;
-
-
-
-
 
