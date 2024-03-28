@@ -13,6 +13,7 @@ import {
     Keyboard
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 const Profile = () => {
     const navigation = useNavigation();
@@ -35,6 +36,20 @@ const Profile = () => {
     const [userType, setUserType] = useState('');
     const [secretText, setSecretText] = useState('');
     const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+    function handelSubmit() {
+        const userData = {
+            name: name,
+            email,
+            password,
+          
+          };
+        axios
+        .post("http://192.168.1.71:5001/register",userData)
+        .then(res =>console.log(res.data))
+        .catch(e => console.log(e.response));
+    }
+
 
     useEffect(() => {
         const keyboardDidShowListener = Keyboard.addListener(
@@ -169,7 +184,7 @@ const Profile = () => {
                     <Text style={styles.termsText}>and <Text style={styles.termsHighlight}>Privacy Policy</Text></Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.signupButton} onPress={Register}>
+                <TouchableOpacity style={styles.signupButton} onPress={()=>handelSubmit()}>
                     <Text style={styles.signupButtonText}>Sign up</Text>
                 </TouchableOpacity>
 
