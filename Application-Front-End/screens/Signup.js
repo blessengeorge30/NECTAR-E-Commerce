@@ -42,7 +42,6 @@ const Profile = () => {
             name: name,
             email,
             password,
-          
           };
         axios
         .post("http://192.168.1.71:5001/register",userData)
