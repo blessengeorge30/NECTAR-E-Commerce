@@ -177,7 +177,7 @@ const Profile = () => {
                 </View>
                 
                 <TouchableOpacity style={styles.termsLink}>
-                    <Text style={styles.termsText}>By continuing you agree to our <Text style={styles.termsHighlight}>Terms of Service</Text></Text>
+                    <Text style={styles.termsText}>By continuing you agree to our<Text style={styles.termsHighlight}>Terms of Service</Text></Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.termsLink}>
                     <Text style={styles.termsText}>and <Text style={styles.termsHighlight}>Privacy Policy</Text></Text>
@@ -188,7 +188,7 @@ const Profile = () => {
                 </TouchableOpacity>
 
                 <View style={styles.signInContainer}>
-                    <Text style={styles.signInText}>Already have an account? </Text>
+                    <Text style={styles.signInText}>Already have an account?</Text>
                     <TouchableOpacity onPress={Signup}>
                         <Text style={styles.signInLink}>Sign in</Text>
                     </TouchableOpacity>
