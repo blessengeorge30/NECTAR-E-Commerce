@@ -37,17 +37,17 @@ const Profile = () => {
     const [secretText, setSecretText] = useState('');
     const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
-    function handelSubmit() {
-        const userData = {
-            name: name,
-            email,
-            password,
-          };
-        axios
-        .post("http://192.168.1.71:5001/register",userData)
-        .then(res =>console.log(res.data))
-        .catch(e => console.log(e.response));
-    }
+    // function handelSubmit() {
+    //     const userData = {
+    //         name: name,
+    //         email,
+    //         password,
+    //       };
+    //     axios
+    //     .post("http://192.168.1.12:5001/register",userData)
+    //     .then(res =>console.log(res.data))
+    //     .catch(e => console.log(e.response));
+    // }
 
 
     useEffect(() => {
@@ -183,7 +183,9 @@ const Profile = () => {
                     <Text style={styles.termsText}>and <Text style={styles.termsHighlight}>Privacy Policy</Text></Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.signupButton} onPress={()=>handelSubmit()}>
+                <TouchableOpacity style={styles.signupButton} 
+                // onPress={()=>handelSubmit()}
+                >
                     <Text style={styles.signupButtonText}>Sign up</Text>
                 </TouchableOpacity>
 
@@ -297,7 +299,7 @@ const styles = StyleSheet.create({
             flexDirection: 'row',
             alignItems: 'center',
             marginBottom: 10,
-            paddingHorizontal: 20
+            paddingHorizontal: 25
         },
         termsText: {
             color: 'black',

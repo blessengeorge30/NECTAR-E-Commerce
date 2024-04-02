@@ -2,7 +2,7 @@ const express=require("express");
 const app= express();
 
 const mongoose =require ("mongoose");
-app.use(express.json())
+app.use(express.json());
 
 const mongoUrl="mongodb+srv://blessengeorge30:Zion2012@cluster0.dfcivke.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
