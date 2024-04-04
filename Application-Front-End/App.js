@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {firebase } from "./config/firebase"
 
 import Router from './screens/Router';
 import Homescreen from "./Bottomnavigation/Shop";
