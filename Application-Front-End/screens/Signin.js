@@ -28,7 +28,6 @@ const Signin = () => {
     }
 const [visiblity,setvisiablity]=useState(true)
 
-const auth =FIREBASE_AUTH
 
     return (
         <View style={styles.container}>

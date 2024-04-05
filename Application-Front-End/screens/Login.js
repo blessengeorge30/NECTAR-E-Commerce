@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Login from "../Bottomnavigation/Cart";
+import { FIREBASE_AUTH } from "../config/firebase";
 // import Icon from 'react-native-vector-icons/AntDesign';
 // import { PRODUCT_PROFILEITEMS } from "../Components/profileitemlist";
 
@@ -26,6 +27,12 @@ const Profile = () => {
         navigation.navigate("Signup")
     }
     const [visiblity, setvisiablity] = useState(true)
+
+    const [email, setemail] = useState('');
+    const [password, setPassword] = useState('');
+    const [Loading, setLoading] = useState('');
+    const auth = FIREBASE_AUTH
+
     return (
         <View style={styles.container}>
 
