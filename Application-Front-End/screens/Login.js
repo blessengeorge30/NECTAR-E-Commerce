@@ -1,4 +1,4 @@
-import { Keyboard} from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import React, { useState, useEffect } from "react";
 import {
     Text,
@@ -6,15 +6,26 @@ import {
     Image,
     StyleSheet,
     TextInput,
-    ScrollView,
     TouchableOpacity,
     ImageBackground,
-    KeyboardAvoidingView
+    Keyboard,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { Platform } from "react-native";
 
-import { FIREBASE_AUTH } from "../config/firebase";
+import { useNavigation } from "@react-navigation/native";
+import { initializeApp } from '@firebase/app';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDaYjP67YeWLopqlzaHGX-B1VZicdCiE9I",
+    authDomain: "fir-auth-d5110.firebaseapp.com",
+    projectId: "fir-auth-d5110",
+    storageBucket: "fir-auth-d5110.appspot.com",
+    messagingSenderId: "904490211145",
+    appId: "1:904490211145:web:f685bf4a5b26994b642c98"
+};
+
+const app = initializeApp(firebaseConfig);
 
 const Profile = () => {
     const navigation = useNavigation();
@@ -27,12 +38,12 @@ const Profile = () => {
         navigation.navigate("Signup");
     };
 
-    const [visibility, setVisibility] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState('');
+    const [visibility, setVisibility] = useState(true);
 
-    const auth = FIREBASE_AUTH;
+   
 
     useEffect(() => {
         const keyboardDidShowListener = Keyboard.addListener(
@@ -55,14 +66,13 @@ const Profile = () => {
         };
     }, []);
 
-
     return (
         <KeyboardAvoidingView
-            style={[styles.container, { paddingBottom: 500 }]}
+            style={styles.container}
             behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
-            <ScrollView>
-                <View style={{ flexDirection: 'row' }}>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                {visibility && (
                     <View style={{ flex: 1 }}>
                         <ImageBackground
                             source={require('../assets/blurbg.jpeg')}
@@ -71,80 +81,71 @@ const Profile = () => {
                             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
                                 <Image source={require('../assets/back.png')} style={{ height: 20, width: 20, marginVertical: 25 }} />
                             </TouchableOpacity>
-                            <View style={{ marginTop: 60 }}>
-                                <Image source={require('../assets/originallogo.png')} style={{ height: 60, width: 50, alignSelf: 'center' }} />
-                                {visibility == true ? (
-                                    <View style={{ marginTop: 20 }}>
-                                        <Text style={{ color: 'black', fontSize: 27, marginBottom: 8, alignSelf: 'center', fontWeight: "500" }}>Login</Text>
-                                        <Text style={{ color: 'grey', fontSize: 13, alignSelf: 'center', marginBottom: 2 }}> Enter your emails and password</Text>
-                                    </View>
-                                ) : null}
+                            <View style={styles.logoContainer}>
+                                <Image source={require('../assets/originallogo.png')} style={styles.logoImage} />
+                                <Text style={styles.loginText}>Login</Text>
+                                <Text style={styles.loginDescription}>Enter your email and password</Text>
                             </View>
                         </ImageBackground>
                     </View>
-                </View>
-
-                <View>
-                    <View style={{ marginTop: 15 }}>
-                        <View style={{ marginTop: -140 }}>
-                            <Text style={{ color: 'black', fontSize: 15, marginLeft: 55 }}>Email</Text>
-                            <TouchableOpacity onPress={() => { setVisibility(!visibility) }}>
-                                <TextInput
-                                    style={[styles.inputView1, { color: 'black' }]}
-                                    value={email}
-                                    autoCapitalize="none"
-                                    placeholderTextColor='white'
-                                    maxLength={10}
-                                    onChangeText={(text) => setEmail(text)}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={{ marginTop: 25 }}>
-                            <Text style={{ color: 'black', fontSize: 15, marginLeft: 55 }}>Password</Text>
-                            <TextInput
-                                style={[styles.inputView1, { color: 'black' }]}
-                                autoCapitalize="none"
-                                value={password}
-                                placeholderTextColor='white'
-                                maxLength={10}
-                                secureTextEntry={true}
-                                onChangeText={(text) => setPassword(text)}
-                            />
-                            <TouchableOpacity>
-                                <Text style={{ color: 'black', fontSize: 12, marginTop: 5, marginLeft: 255, opacity: 0.5 }}>    Forgot password? </Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View>
-                            <TouchableOpacity style={styles.buttonView} onPress={Login} >
-                                <Text style={styles.buttontext}> Login </Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{ marginTop: 25, alignSelf: 'center', }}>
-                            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={Signup} >
-                                <Text style={styles.buttontext2}> Don't have an account?</Text>
-                                <Text style={styles.buttontext1}> Sign up</Text>
-                            </TouchableOpacity>
-                        </View>
+                )}
+                <View style={styles.formContainer}>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.inputLabel}>Email</Text>
+                        <TextInput
+                            style={styles.inputField}
+                            value={email}
+                            autoCapitalize="none"
+                            placeholderTextColor='black'
+                            onChangeText={(text) => setEmail(text)}
+                        />
                     </View>
+
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.inputLabel}>Password</Text>
+                        <TextInput
+                            style={styles.inputField}
+                            autoCapitalize="none"
+                            value={password}
+                            placeholderTextColor='black'
+                            secureTextEntry={true}
+                            onChangeText={(text) => setPassword(text)}
+                        />
+                        <TouchableOpacity>
+                            <Text style={styles.forgotPasswordText}>Forgot password?</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    {loading ? <ActivityIndicator size="large" color="#000" />
+                        : <>
+                            <TouchableOpacity style={styles.loginButton} onPress={Login} >
+                                <Text style={styles.loginButtonText}>Login</Text>
+                            </TouchableOpacity>
+                            <View style={styles.signupContainer}>
+                                <Text style={styles.signupText}>Don't have an account?</Text>
+                                <TouchableOpacity onPress={Signup}>
+                                    <Text style={[styles.signupText, { color: 'green' }]}>Sign up</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </>
+                    }
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
-        height: '100%',
+        flex: 1,
         backgroundColor: 'white',
-        flex: 1
     },
     backgroundImage: {
-        height: '95%',
-        width: '100%',
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
     },
-    button3:
-    {
+    button3: {
         height: 40,
         width: 50,
         borderColor: 'white',
@@ -159,49 +160,78 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         marginHorizontal: 25
     },
-    inputView1: {
-        width: '75%',
+    logoContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    logoImage: {
         height: 60,
-        borderBottomWidth: 0.5,
-        borderColor: '#01326f',
+        width: 50,
+        alignSelf: 'center',
+        marginBottom: 20
+    },
+    loginText: {
+        color: 'black',
+        fontSize: 27,
+        marginBottom: 8,
+        fontWeight: "500"
+    },
+    loginDescription: {
+        color: 'grey',
+        fontSize: 13,
+        marginBottom: 20
+    },
+    formContainer: {
+        flex: 1,
+        paddingHorizontal: 20,
+        paddingTop: 80,
+    },
+    inputContainer: {
+        marginBottom: 50
+    },
+    inputLabel: {
+        color: 'black',
+        fontSize: 15,
+    },
+    inputField: {
+        width: '100%',
+        height: 40,
+        borderBottomWidth: 1,
+        borderBottomColor: '#01326f',
         marginTop: 5,
-        marginHorizontal: 15,
-        alignSelf: "center"
+        color: 'black'
     },
-    buttonView: {
-        width: '88%',
-        height: 65,
+    forgotPasswordText: {
+        color: 'black',
+        fontSize: 12,
+        marginTop: 5,
+        opacity: 0.5
+    },
+    loginButton: {
+        width: '100%',
+        height: 50,
         backgroundColor: '#00c559',
-        marginTop: 25,
         borderRadius: 5,
-        alignSelf: "center",
         alignItems: 'center',
-        justifyContent: "center",
-        textAlignVertical: 'center'
+        justifyContent: 'center',
+        marginBottom: 20
     },
-    buttontext: {
+    loginButtonText: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 18,
-        alignSelf: 'center'
+        fontSize: 18
     },
-    buttontext1: {
-        color: 'green',
-        fontWeight: 'bold',
-        height: 25,
-        marginLeft: 2,
-        fontSize: 16,
+    signupContainer: {
+        flexDirection: 'row',
         alignItems: 'center',
-        alignSelf: "center"
+        justifyContent: 'center'
     },
-    buttontext2: {
+    signupText: {
         color: 'black',
         fontWeight: '400',
-        fontSize: 15,
-        alignItems: 'center',
-        alignSelf: "center"
-    },
+        fontSize: 15
+    }
 });
 
 export default Profile;
-

@@ -13,9 +13,25 @@ import {
     Keyboard
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import axios from "axios";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDaYjP67YeWLopqlzaHGX-B1VZicdCiE9I",
+    authDomain: "fir-auth-d5110.firebaseapp.com",
+    projectId: "fir-auth-d5110",
+    storageBucket: "fir-auth-d5110.appspot.com",
+    messagingSenderId: "904490211145",
+    appId: "1:904490211145:web:f685bf4a5b26994b642c98"
+};
+
+// const app = initializeApp(firebaseConfig);
+
+
 
 const Profile = () => {
+
+    // { email, setEmail, password, setPassword, isLogin,setIsLogin ,handleAuthentication} 
     const navigation = useNavigation();
 
     const Register = () => {
@@ -37,17 +53,7 @@ const Profile = () => {
     const [secretText, setSecretText] = useState('');
     const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
-    // function handelSubmit() {
-    //     const userData = {
-    //         name: name,
-    //         email,
-    //         password,
-    //       };
-    //     axios
-    //     .post("http://192.168.1.12:5001/register",userData)
-    //     .then(res =>console.log(res.data))
-    //     .catch(e => console.log(e.response));
-    // }
+
 
 
     useEffect(() => {
