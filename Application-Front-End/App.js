@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {firebase } from "./config/firebase"
@@ -29,27 +29,6 @@ import { Provider } from 'react-redux';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-//   const [initializing,setInitializing] = useState(true);
-// const [user,setUser] = useState();
-
-//   // Handle user state changes
-//   function onAuthStateChanged(user) {
-//     setUser(user);
-//     if (initializing) setInitializing(false);
-//   }
-//   useEffect(() => {
-//     const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
-//     return subscriber; 
-//   }, []);
-
-//   if (initializing) return null;
-
-//   if (!user) {  
-  
- 
-
-//   }
-
   return (
     <Provider store={store}>
     <NavigationContainer>
