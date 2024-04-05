@@ -11,6 +11,7 @@ import {
     Dimensions,
 } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+import { FIREBASE_AUTH } from '../config/firebase';
 
 const Signin = () => {
     const handleConfirmButtonPress = () => {
@@ -26,6 +27,9 @@ const Signin = () => {
         navigation.navigate("Router")
     }
 const [visiblity,setvisiablity]=useState(true)
+
+const auth =FIREBASE_AUTH
+
     return (
         <View style={styles.container}>
             {visiblity==true?<View>
