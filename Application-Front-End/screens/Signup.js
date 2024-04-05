@@ -49,6 +49,8 @@ const Profile = () => {
     //     .catch(e => console.log(e.response));
     // }
 
+ 
+
 
     useEffect(() => {
         const keyboardDidShowListener = Keyboard.addListener(
@@ -184,7 +186,7 @@ const Profile = () => {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.signupButton} 
-                // onPress={()=>handelSubmit()}
+                onPress={()=>registerUser()}
                 >
                     <Text style={styles.signupButtonText}>Sign up</Text>
                 </TouchableOpacity>
