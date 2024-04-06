@@ -192,12 +192,12 @@ const styles = StyleSheet.create({
         marginTop: 5,
         color: 'black'
     },
-    forgotPasswordText: {
-        color: 'black',
-        fontSize: 12,
-        marginTop: 5,
-        opacity: 0.5
-    },
+    // forgotPasswordText: {
+    //     color: 'black',
+    //     fontSize: 12,
+    //     marginTop: 5,
+    //     opacity: 0.5
+    // },
     loginButton: {
         width: '100%',
         height: 50,
