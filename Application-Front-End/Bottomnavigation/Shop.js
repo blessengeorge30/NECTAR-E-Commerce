@@ -51,19 +51,19 @@ const Profile = () => {
     }
 
 
-    // const getData = async () => {
-    //     try {
-    //       const querySnapshot = await getDocs(collection(fireDB, "products"));
-    //       const products = querySnapshot.docs.map((doc) => ({
-    //         id: doc.id,
-    //         ...doc.data(),
-    //       }));
+    const getData = async () => {
+        try {
+          const querySnapshot = await getDocs(collection(fireDB, "products"));
+          const products = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
       
-    //       console.log("Data:", products);
-    //     } catch (error) {
-    //       console.error("Error fetching data:", error);
-    //     }
-    //   };
+          console.log("Data:", products);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
       
      
     //     useEffect(() => {
