@@ -13,19 +13,9 @@ import {
 
 import { useNavigation } from "@react-navigation/native";
 import { initializeApp } from '@firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
 
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDaYjP67YeWLopqlzaHGX-B1VZicdCiE9I",
-    authDomain: "fir-auth-d5110.firebaseapp.com",
-    projectId: "fir-auth-d5110",
-    storageBucket: "fir-auth-d5110.appspot.com",
-    messagingSenderId: "904490211145",
-    appId: "1:904490211145:web:f685bf4a5b26994b642c98"
-};
 
-const app = initializeApp(firebaseConfig);
 
 const Profile = () => {
     const navigation = useNavigation();

@@ -7,21 +7,31 @@ import {
     TextInput,
     ScrollView,
     TouchableOpacity,
-    ImageBackground
+    ImageBackground,
+    Pressable
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
 import { PRODUCT_HOME } from "../Components/DiscoverFood";
 import { PRODUCT_ITEMS } from "../Components/Discoverveggies";
 import { PRODUCT_MEAT } from "../Components/DiscoverMeat";
 import { PRODUCT_GROCERIES } from "../Components/Discovergroceries";
-import { PRODUCT_CARD } from "../Components/Recomended";
-
+// import { Firebase} from "../firebase/config";
+// import { PRODUCT_CARD } from "../Components/Recomended";
+import { firestore } from "firebase/firestore";
 
 
 
 const Profile = () => {
 
+    const getData = async () => {
+        const userCollection = await firestore().collection('products').get()
+        console.log(userCollection.docs[0].data)
+    }
 
+    useEffect(() => {
+        getData();
+    }, [])
 
     const navigation = useNavigation();
 
@@ -39,6 +49,29 @@ const Profile = () => {
     const explore = () => {
         navigation.navigate("Explore")
     }
+
+
+    // const getData = async () => {
+    //     try {
+    //       const querySnapshot = await getDocs(collection(fireDB, "products"));
+    //       const products = querySnapshot.docs.map((doc) => ({
+    //         id: doc.id,
+    //         ...doc.data(),
+    //       }));
+      
+    //       console.log("Data:", products);
+    //     } catch (error) {
+    //       console.error("Error fetching data:", error);
+    //     }
+    //   };
+      
+     
+    //     useEffect(() => {
+    //       getData();
+    //     }, []);
+      
+      
+
     const renderitem = (item) => {
 
         return (
@@ -245,6 +278,15 @@ const Profile = () => {
                                     }
                                 </ScrollView>
                             </View>
+                           
+                                {/* <TouchableOpacity onPress={Firebase.firestore().collection('products').get().then(snapshot =>{
+                                    snapshot.forEach((obj) => {console.log(obj.data)
+                                        
+                                    })
+
+                                })}  style={{ fontSize:15,marginVertical: 55, alignSelf:'center' }}>
+                                    <Text>Add to Cart</Text></TouchableOpacity> */}
+                             
                         </View>
                     </ImageBackground>
                 </View>
