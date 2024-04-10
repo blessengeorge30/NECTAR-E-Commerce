@@ -24,14 +24,14 @@ import { firestore } from "firebase/firestore";
 
 const Profile = () => {
 
-    const getData = async () => {
-        const userCollection = await firestore().collection('products').get()
-        console.log(userCollection.docs[0].data)
-    }
+    // const getData = async () => {
+    //     const userCollection = await firestore().collection('products').get()
+    //     console.log(userCollection.docs[0].data)
+    // }
 
-    useEffect(() => {
-        getData();
-    }, [])
+    // useEffect(() => {
+    //     getData();
+    // }, [])
 
     const navigation = useNavigation();
 
