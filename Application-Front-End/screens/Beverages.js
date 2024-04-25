@@ -85,7 +85,7 @@ const Homescreen = () => {
                             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button3}>
                                 <Image source={require('../assets/back.png')} style={{ height: 20, width: 20 }} />
                             </TouchableOpacity>
-                            <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 55,marginVertical:5, fontWeight: "bold" }}>Beverages </Text>
+                            <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 55,marginVertical:5, fontWeight: "bold" }}>Beverages 1 </Text>
                             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button4}>
                                 <Image source={require('../assets/filter.png')} style={{ height: 20, width: 20 }} />
                             </TouchableOpacity>
