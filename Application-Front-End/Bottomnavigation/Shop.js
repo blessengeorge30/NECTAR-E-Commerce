@@ -203,7 +203,7 @@ const Profile = () => {
                             </View>
                             <View style={{ flexDirection: 'row', marginLeft: 70 }}>
                                 <Image source={require('../assets/Exclude.png')} style={{ height: 16, width: 14, alignSelf: 'center', marginLeft: 30, marginTop: -14 }} />
-                                <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 10, fontWeight: "500" }}>Thrissur, Kerala, Indi </Text>
+                                <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, alignSelf: "center", marginLeft: 10, fontWeight: "500" }}>Thrissur, Kerala, Ind </Text>
                             </View>
 
 
