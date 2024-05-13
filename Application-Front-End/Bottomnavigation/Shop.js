@@ -220,7 +220,7 @@ const Profile = () => {
                             <View style={{ flexDirection: "row" }}>
                                 <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 45, fontWeight: "bold" }}>Exclusive Offers</Text>
                                 <TouchableOpacity style={{ flexDirection: "row" }} onPress={explore} >
-                                    <Text style={styles.buttontext1}>  see all t</Text>
+                                    <Text style={styles.buttontext1}>  see all </Text>
                                     <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 22, borderRadius: 15 }} />
                                 </TouchableOpacity>
                             </View>
