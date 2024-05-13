@@ -20,12 +20,12 @@ const ShopIcon = () => (
       style={{ width: 25, height: 25, tintColor: "white" }}
     />
   );
-  const ExploreIcon = () => (
-    <Image
-      source={require("../assets/explore.png")}
-      style={{ width: 24, height: 17, tintColor: "white" }}
-    />
-  );
+  // const ExploreIcon = () => (
+  //   <Image
+  //     source={require("../assets/explore.png")}
+  //     style={{ width: 24, height: 17, tintColor: "white" }}
+  //   />
+  // );
   const CartIcon = () => (
     <Image
       source={require("../assets/cart1.png")}
@@ -81,7 +81,7 @@ const Router = () => {
                     },
                 }} />
           
-            <Tab.Screen
+            {/* <Tab.Screen
                 name="Explore"
                 component={Explore}
                 options={{
@@ -93,7 +93,7 @@ const Router = () => {
                       
                         marginTop: 1,
                     },
-                }} />
+                }} /> */}
               <Tab.Screen
                 name="Cart"
                 component={Cart}

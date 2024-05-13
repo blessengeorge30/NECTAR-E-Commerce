@@ -168,7 +168,7 @@ const cartScreen = () => {
 
                                         <View style={{ flexDirection: "row" }}>
                                             <Text style={[styles.title, { width: "100%" }]}>TOTAL COST </Text>
-                                            <Text style={[styles.title1, { width: "100%" }]}>$85.85</Text>
+                                            <Text style={[styles.title1, { width: "100%" }]}>$82.99</Text>
                                         </View>
                                         <TouchableOpacity>
                                             <View style={{ flexDirection: 'row', marginLeft: 4, marginTop: 15 }}>

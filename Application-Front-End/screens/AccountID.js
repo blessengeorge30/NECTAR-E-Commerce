@@ -73,7 +73,7 @@ const Profile = () => {
                         <Image source={require('../assets/QR.png')} style={{ height: 220, width: 220, marginVertical: 15, alignSelf: "center", borderRadius: 15 }} />
                     </View>
                     <View>
-                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginTop: 25, alignSelf: "center" }}>ACCOUNT ID : 95629365</Text>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginTop: 25, alignSelf: "center" }}>ACCOUNT ID : 956233</Text>
                         <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black', marginTop: 5, alignSelf: "center" }}> USER: BLESSEN GEORGE </Text>
 
                         <View style={{ flexDirection: "row" }}>

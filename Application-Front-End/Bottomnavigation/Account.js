@@ -71,7 +71,7 @@ const Profile = () => {
                         </View>
                         <View style={{ marginTop: 28, marginRight: 65 }}>
                             <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'black' }}>BLESSEN GEORGE</Text>
-                            <Text style={{ fontSize: 16, color: 'grey' }}>ID: 8526974316</Text>
+                            <Text style={{ fontSize: 16, color: 'grey' }}>ID: 956233</Text>
 
                         </View>
                     </View>

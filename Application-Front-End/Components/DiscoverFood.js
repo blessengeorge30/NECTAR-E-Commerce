@@ -35,6 +35,7 @@ export const PRODUCT_HOME = [
         productdetails: "Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet."
 
     },
+    
 
 
 
