@@ -252,7 +252,7 @@ const Profile = () => {
                                 </ScrollView>
                             </View>
                             <View style={{ flexDirection: "row" }}>
-                                <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 110, fontWeight: "500" }}>Groceries okaythi</Text>
+                                <Text style={{ color: 'black', fontSize: 22, marginBottom: 12, marginVertical: 15, marginHorizontal: 30, marginRight: 110, fontWeight: "500" }}>Groceries okayth</Text>
                                 <TouchableOpacity style={{ flexDirection: "row" }} >
                                     <Text style={styles.buttontext1}>  see all</Text>
                                     <Image source={require('../assets/rightarrow.png')} style={{ height: 10, width: 10, marginHorizontal: 10, marginTop: 5, borderRadius: 15 }} />
