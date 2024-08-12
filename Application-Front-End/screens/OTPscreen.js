@@ -40,7 +40,7 @@ const Profile = () => {
                     <View style={{ marginTop:235}}>
                     <Text style={{ color: 'black', fontSize: 30, alignSelf: 'center', fontWeight: "500" }}>Enter 4 -digit code</Text>
                     <Text style={{ color: 'grey', fontSize: 15, alignSelf: 'center',marginBottom:10 }}>Please type the verification code sent to</Text>
-                    {/* <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center',marginBottom:10 ,fontWeight: "bold"}}>+91 8137066525</Text> */}
+                    <Text style={{ color: 'black', fontSize: 15, alignSelf: 'center',marginBottom:10 ,fontWeight: "bold"}}>+91 8137066525</Text>
 
           
                     </View>
