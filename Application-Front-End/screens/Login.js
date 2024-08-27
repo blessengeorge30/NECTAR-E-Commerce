@@ -74,7 +74,7 @@ const Profile = () => {
                             <View style={styles.logoContainer}>
                                 <Image source={require('../assets/originallogo.png')} style={styles.logoImage} />
                                 <Text style={styles.loginText}>Login</Text>
-                                <Text style={styles.loginDescription}>Enter your email andpassword</Text>
+                                <Text style={styles.loginDescription}>Enter your email and password</Text>
                             </View>
                         </ImageBackground>
                     </View>
