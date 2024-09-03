@@ -58,7 +58,7 @@ const Router = () => {
                 tabBarActiveTintColor: "white",
                 tabBarInactiveTintColor: "grey",
                 // tabBarActiveBackgroundColor:'white',
-                // tabBarInactiveBackgroundColor:'gray',
+               
       
                 tabBarItemStyle: {
                     marginTop: 5,
