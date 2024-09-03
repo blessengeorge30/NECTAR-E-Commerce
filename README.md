@@ -3,8 +3,6 @@
 
 Introducing the NECTAR, the ultimate solution for seamless and efficient grocery shopping at your fingertips. Experience the convenience of a personalized shopping experience with our feature-rich mobile app.
 
-
-
 ## Features 🚀
 
 Intuitive Interface: Navigate effortlessly through our user-friendly app designed for a smooth and enjoyable shopping journey. 🚀
