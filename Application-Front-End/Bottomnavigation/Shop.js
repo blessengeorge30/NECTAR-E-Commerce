@@ -97,7 +97,7 @@ const Profile = () => {
                             height: 25,
                             justifyContent: 'center',
                         }}>
-                            <Text style={{ color: 'white', marginBottom: 5, marginTop: 5, marginHorizontal: 5 }}>- </Text>
+                            <Text style={{ color: 'white', marginBottom: 5, marginTop: 5, marginHorizontal: 5 }}>-</Text>
                         </TouchableOpacity>
                     )}
                     {item.qty === 0 ? null : (
@@ -109,7 +109,7 @@ const Profile = () => {
                                 height: 25,
                                 justifyContent: 'center',
                             }}>
-                                <Text style={{ color: 'white', marginBottom: 5, marginTop: 5, marginHorizontal: 5 }}>+ </Text>
+                                <Text style={{ color: 'white', marginBottom: 5, marginTop: 5, marginHorizontal: 5 }}>+</Text>
                             </TouchableOpacity>
                         </View>
                     )}
